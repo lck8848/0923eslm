@@ -7,12 +7,6 @@ export default {
 		console.log('App Show222');
 	},
 	onHide: function() {
-		console.log(555)
-		console.log('aaaa')
-		console.log('aaaabbb')
-		console.log('App Hide123');
-		console.log('App Hide456');
-		console.log('App Hide456');
 	}
 };
 </script>
