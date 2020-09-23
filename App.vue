@@ -12,6 +12,7 @@ export default {
 		console.log('aaaabbb')
 		console.log('App Hide123');
 		console.log('App Hide456');
+		console.log('App Hide456');
 	}
 };
 </script>
