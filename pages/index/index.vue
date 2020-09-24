@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
 		index
+		<van-search  placeholder="请输入搜索关键词" />
 	</view>
 </template>
 
