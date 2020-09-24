@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#007AFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tab_home.png",
+        "selectedIconPath": "static/tab_home_s.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/index/indexme",
+        "iconPath": "static/tab_me.png",
+        "selectedIconPath": "static/tab_me_s.png",
+        "text": "我"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
