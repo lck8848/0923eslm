@@ -6,6 +6,7 @@ export default {
 		console.log('App Show2');
 	},
 	onHide: function() {
+		console.log('App Hide');
 		console.log('App Hide1');
 	}
 };
