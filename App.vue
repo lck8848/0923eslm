@@ -2,9 +2,9 @@
 export default {
 	onLaunch: function() {
 		console.log('App Launch3');
-		console.log('App Launch3');
 	},
 	onShow: function() {
+		console.log('App Show2');
 		console.log('App Show2');
 	},
 	onHide: function() {
