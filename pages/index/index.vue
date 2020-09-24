@@ -17,7 +17,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
 	.container {
 		padding: 20px;
 		font-size: 14px;
