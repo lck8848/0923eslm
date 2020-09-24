@@ -2,7 +2,7 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "饿死了吗"
+			"navigationBarTitleText": "饿死了么"
 		}
 	}, {
 		"path": "pages/find/find",
@@ -51,6 +51,9 @@
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#007AFF",
-		"backgroundColor": "#FFFFFF"
+		"backgroundColor": "#FFFFFF",
+		"usingComponents": {
+			"van-search": "/wxcomponents/vant/dist/search/index"
+		}
 	}
 }

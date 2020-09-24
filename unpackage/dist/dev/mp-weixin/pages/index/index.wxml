@@ -1,1 +1,1 @@
-<view class="container">index</view>
+<view class="container">index<van-search vue-id="8dd740cc-1" placeholder="请输入搜索关键词" data-com-type="wx" bind:__l="__l"></van-search></view>

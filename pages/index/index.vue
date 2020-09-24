@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
-		
+		index
+		<van-search  placeholder="请输入搜索关键词" />
 	</view>
 </template>
 
@@ -25,7 +26,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
 	.container {
 		padding: 20px;
 		font-size: 14px;
