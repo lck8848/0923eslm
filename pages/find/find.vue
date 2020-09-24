@@ -40,44 +40,65 @@ export default {
 <style lang="scss" scoped>
 .container {
 	.parts {
+		display: flex;
 		width: 100vw;
 		height: 640rpx;
 		a {
-			.box{
-				image{
-					width: 20vw;
-					height: 20vw;
+			float: left;
+			border: 1px solid #ededed;
+			.box {
+				p {
+					margin: 0;
+					font-weight: 400;
+				}
+				.title {
+					font-size: 16px;
+				}
+				.desc {
+					font-size: 12px;
+					color: #999;
 				}
 			}
 		}
-		
+
 		.left {
-			.box{
-				image{
+			width: 262rpx;
+			height: 210rpx;
+			padding: 88rpx 44rpx 24rpx 64rpx;
+			.box {
+				.title {
+					color: rgb(255, 153, 0);
+				}
+				image {
 					width: 20vw;
 					height: 20vw;
 				}
 			}
 		}
-		
+
 		.rightTop {
-			.box{
-				image{
+			.box {
+				.title {
+					color: rgb(27, 169, 225);
+				}
+				image {
 					width: 12vw;
 					height: 12vw;
 				}
 			}
 		}
-		
+
 		.rightBottom {
-			.box{
-				image{
+			.box {
+				.title {
+					color: rgb(237, 102, 96);
+				}
+				image {
 					width: 12vw;
 					height: 12vw;
 				}
 			}
 		}
 	}
-		
 }
 </style>
