@@ -4,7 +4,7 @@
 		<view class="home-container">
 		    <!-- 搜索 -->
 		    <van-search
-		        value="value"
+		        value=""
 		        background="#008EFF"
 		        placeholder="搜索饿了么商家 , 商品名称"
 		    />
@@ -28,7 +28,7 @@
 		                <view class="buy">立即抢购 ></view>
 		            </view>
 		            <view class="right">
-		                <image class="img" src="/imges/food.webp"></image>
+		                <image class="img" src="/static/images/home/food.webp"></image>
 		            </view>
 		        </view>
 		        <view class="footer">
@@ -85,14 +85,11 @@
 </script>
 
 <style lang="scss" scoped>
-	.home-container .van-grid .van-grid-item .van-grid-item__content {
-	    padding: 30rpx 16rpx 0rpx;
-	}
 	
 	.home-container .van-grid .text {
 	    margin-top: 10rpx;
-	    font-size: 32rpx;
-	    color: #666;
+	    font-size: 28rpx;
+	    color: #666;	    
 	}
 	
 	.quality .top {
@@ -104,7 +101,7 @@
 	}
 	
 	.quality {
-	    margin-top: 40rpx;
+	    margin-top: 20rpx;
 	    padding: 0 20rpx;
 	}
 	
@@ -112,7 +109,13 @@
 	    width: 300rpx;
 	    height: 200rpx;
 	}
-	
+	// .home-container .van-grid .van-grid-item .content-class {
+	//     padding: 30rpx 16rpx 0rpx;
+	// }
+	.van-grid-item__content--center {
+		padding: 0;
+	}
+	// content-class   
 	.quality .top .left .title{
 	    font-weight: 900;
 	}

@@ -24,9 +24,24 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.container.data-v-127632e4 {
-  padding: 20px;
-  font-size: 14px;
-  line-height: 24px;
+.order-container .nologin.data-v-127632e4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-top: 200rpx;
+}
+.order-container .nologin .img.data-v-127632e4 {
+  width: 500rpx;
+  height: 500rpx;
 }
 

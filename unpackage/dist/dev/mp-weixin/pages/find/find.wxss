@@ -25,6 +25,7 @@
 /* 透明度 */
 /* 文章场景相关 */
 .container .parts.data-v-408c90a6 {
+<<<<<<< HEAD
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -53,21 +54,35 @@
 }
 .container .parts .left .box .title.data-v-408c90a6 {
   color: #ff9900;
+=======
+  width: 100vw;
+  height: 640rpx;
+}
+.container .parts ._a .box image.data-v-408c90a6 {
+  width: 20vw;
+  height: 20vw;
+>>>>>>> d5c7fe3c61fd52362b482ab1866b9448cccbd27c
 }
 .container .parts .left .box image.data-v-408c90a6 {
   width: 20vw;
   height: 20vw;
 }
+<<<<<<< HEAD
 .container .parts .rightTop .box .title.data-v-408c90a6 {
   color: #1ba9e1;
 }
+=======
+>>>>>>> d5c7fe3c61fd52362b482ab1866b9448cccbd27c
 .container .parts .rightTop .box image.data-v-408c90a6 {
   width: 12vw;
   height: 12vw;
 }
+<<<<<<< HEAD
 .container .parts .rightBottom .box .title.data-v-408c90a6 {
   color: #ed6660;
 }
+=======
+>>>>>>> d5c7fe3c61fd52362b482ab1866b9448cccbd27c
 .container .parts .rightBottom .box image.data-v-408c90a6 {
   width: 12vw;
   height: 12vw;

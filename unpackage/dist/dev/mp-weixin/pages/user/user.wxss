@@ -24,9 +24,89 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.container.data-v-80842834 {
-  padding: 20px;
-  font-size: 14px;
-  line-height: 24px;
+.user-container.data-v-80842834 {
+  background-color: #E7EAED;
+  height: 100%;
+}
+.user-container .top.data-v-80842834 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  background-color: #008eff;
+  padding: 20rpx 30rpx;
+}
+.user-container .top .img.data-v-80842834 {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.user-container .top .img .img.data-v-80842834 {
+  width: 100%;
+  height: 100%;
+}
+.user-container .top .operation.data-v-80842834 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  color: #fff;
+  margin-left: 30rpx;
+  font-weight: 900;
+  font-size: 40rpx;
+}
+.user-container .top .right.data-v-80842834 {
+  color: #fff;
+}
+.user-container .van-cell.data-v-80842834 {
+  padding: 15rpx 25rpx;
+}
+.user-container .van-cell .img.data-v-80842834 {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 20rpx;
+}
+.user-container .mainInfo.data-v-80842834 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  background-color: #fff;
+}
+.user-container .mainInfo .left.data-v-80842834,
+.user-container .mainInfo .right.data-v-80842834 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 20rpx 0;
+}
+.user-container .mainInfo .left .img.data-v-80842834 {
+  width: 44rpx;
+  height: 44rpx;
+}
+.user-container .mainInfo .right .img.data-v-80842834 {
+  width: 44rpx;
+  height: 44rpx;
+}
+.user-container .mainInfo .right .text.data-v-80842834,
+.user-container .mainInfo .left .text.data-v-80842834 {
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  font-weight: 900;
 }
 
