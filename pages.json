@@ -58,7 +58,8 @@
 			"van-grid-item": "/wxcomponents/vant/dist/grid-item/index",
 			"van-cell": "/wxcomponents/vant/dist/cell/index",
 			"van-divider": "/wxcomponents/vant/dist/divider/index",
-			"van-icon": "/wxcomponents/vant/dist/icon/index"
+			"van-icon": "/wxcomponents/vant/dist/icon/index",
+			"van-cell-group": "/wxcomponents/vant/dist/cell-group/index"
 		}
 	}
 }
