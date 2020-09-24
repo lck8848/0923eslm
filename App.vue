@@ -1,8 +1,8 @@
 <script>
 export default {
 	onLaunch: function() {
-		console.log('App Show3');
-		console.log('App Show3');
+		console.log('App Show4');
+		console.log('App Show4');
 	},
 	onShow: function() {
 		console.log('App Show2');
