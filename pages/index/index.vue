@@ -1,35 +1,172 @@
 <template>
 	<view class="container">
-		index
-		<van-search  placeholder="请输入搜索关键词" />
+		<!--pages/home/home.wxml-->
+		<view class="home-container">
+		    <!-- 搜索 -->
+		    <van-search
+		        value="value"
+		        background="#008EFF"
+		        placeholder="搜索饿了么商家 , 商品名称"
+		    />
+		    <!-- 宫格 -->
+		    <van-grid column-num="5" :border="false">
+		        <van-grid-item use-slot v-for="item in foods" :key="item.mark">
+		            <image
+		            style="width: 100%; height: 88rpx;"
+		            :src="item.img_path"
+		            />
+		           <view class="text">{{ item.mark }}</view>
+		        </van-grid-item>
+		    </van-grid>
+		
+		    <!-- 品质套餐 -->
+		    <view class="quality">
+		        <view class="top">
+		            <view class="left">
+		                <view class="title">品质套餐</view>
+		                <view class="content">搭配齐全吃得好</view>
+		                <view class="buy">立即抢购 ></view>
+		            </view>
+		            <view class="right">
+		                <image class="img" src="/imges/food.webp"></image>
+		            </view>
+		        </view>
+		        <view class="footer">
+		            <van-cell value="限时6元开通" is-link value-class="red">
+		                <view slot="title">
+		                    <view class="van-cell-text">
+		                        <van-icon name="/imges/crown.png"></van-icon>
+		                        <text class="left">超级会员</text> · <text class="center">每月领20元红包</text>
+		                    </view>
+		                </view>
+		            </van-cell>
+		        </view>
+		    </view>
+		
+		    <!-- 分割线 -->
+		    <van-divider
+		        contentPosition="center"
+		        customStyle="color: #000; border-color: #eee; font-size: 32rpx;"
+		    >
+		        为你推荐
+		    </van-divider>
+		
+		    
+		</view>
+
 	</view>
 </template>
 
 <script>
-	// import { Search,Grid,GridItem,Cell,Icon,Divider } from '@vant';
 	export default {
 		data() {
 			return {
+				foods: [
+				            {mark:"美食",img_path:"/static/images/home/menu1.webp"},
+				            {mark:"夜宵",img_path:"/static/images/home/menu2.webp"},
+				            {mark:"跑腿代购",img_path:"/static/images/home/menu3.webp"},
+				            {mark:"汉堡披萨",img_path:"/static/images/home/menu4.webp"},
+				            {mark:"甜品饮品",img_path:"/static/images/home/menu5.webp"},
+				            {mark:"速食简餐",img_path:"/static/images/home/menu6.webp"},
+				            {mark:"地方小吃",img_path:"/static/images/home/menu7.webp"},
+				            {mark:"米粉面馆",img_path:"/static/images/home/menu8.webp"},
+				            {mark:"包子粥店",img_path:"/static/images/home/menu9.webp"},
+				            {mark:"炸鸡炸串",img_path:"/static/images/home/menu10.webp"},
+				        ]
 			}
 		},
 		methods: {
 
 		},
 		components:{
-			// "van-search": Search,
-			// "van-grid": Grid,
-			// "van-grid-item": GridItem,
-			// "van-icon": Icom,
-			// "van-cell": Cell,
-			// "van-divider": Divider
+			
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.container {
-		padding: 20px;
-		font-size: 14px;
-		line-height: 24px;
+	.home-container .van-grid .van-grid-item .van-grid-item__content {
+	    padding: 30rpx 16rpx 0rpx;
+	}
+	
+	.home-container .van-grid .text {
+	    margin-top: 10rpx;
+	    font-size: 32rpx;
+	    color: #666;
+	}
+	
+	.quality .top {
+	    display: flex;
+	    justify-content: space-between;
+	    background-color: #f6f6f6;
+	    padding: 15rpx 30rpx;
+	    margin-bottom: 10rpx;
+	}
+	
+	.quality {
+	    margin-top: 40rpx;
+	    padding: 0 20rpx;
+	}
+	
+	.quality .top .right{
+	    width: 300rpx;
+	    height: 200rpx;
+	}
+	
+	.quality .top .left .title{
+	    font-weight: 900;
+	}
+	
+	.quality .top .left .content{
+	    font-size: 32rpx;
+	    margin-bottom: 15rpx;
+	    color: #9a9a9a;
+	}
+	
+	.quality .top .left .buy{
+	    color: #b68f71;
+	    font-size: 32rpx;
+	    font-weight: 700;
+	}
+	
+	
+	.quality .top .right .img{
+	    width: 100%;
+	    height: 100%;
+	}
+	
+	.footer .van-cell {
+	    background-color: #f7e3ac;
+	    padding: 20rpx 15rpx;
+	}
+	
+	.quality .footer .red {
+	    color: #7b6631;
+	    font-size: 25rpx;
+	}
+	
+	.quality .footer .van-cell .van-cell-text .left{
+	    margin-left: 5rpx;
+	    font-weight: 900;
+	    color: #7b6631;
+	    font-size: 30rpx;
+	}
+	
+	.quality .footer .van-cell .van-cell-text .center{
+	    color: #7b6631;
+	    font-size: 20rpx;
+	}
+	
+	.classify {
+	    display: flex;
+	    justify-content: space-around;
+	}
+	
+	.classify .item {
+	    font-size: 32rpx;
+	}
+	
+	.classify .selected{
+	    font-weight: 900;
 	}
 </style>

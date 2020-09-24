@@ -53,7 +53,12 @@
 		"navigationBarBackgroundColor": "#007AFF",
 		"backgroundColor": "#FFFFFF",
 		"usingComponents": {
-			"van-search": "/wxcomponents/vant/dist/search/index"
+			"van-search": "/wxcomponents/vant/dist/search/index",
+			"van-grid": "/wxcomponents/vant/dist/grid/index",
+			"van-grid-item": "/wxcomponents/vant/dist/grid-item/index",
+			"van-cell": "/wxcomponents/vant/dist/cell/index",
+			"van-divider": "/wxcomponents/vant/dist/divider/index",
+			"van-icon": "/wxcomponents/vant/dist/icon/index"
 		}
 	}
 }
