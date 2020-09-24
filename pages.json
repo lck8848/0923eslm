@@ -27,8 +27,8 @@
 		"backgroundColor": "#F8F8F8",
 		"list": [{
 			"pagePath": "pages/index/index",
-			"iconPath": "assets/icon/home.png",
-			"selectedIconPath": "assets/icon/home-selected.png",
+			"iconPath": "/assets/icon/home.png",
+			"selectedIconPath": "/assets/icon/home-selected.png",
 			"text": "首页"
 		}, {
 			"pagePath": "pages/find/find",
