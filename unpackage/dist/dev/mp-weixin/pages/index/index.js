@@ -194,6 +194,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -208,12 +214,15 @@ var _default =
       { mark: "地方小吃", img_path: "/static/images/home/menu7.webp" },
       { mark: "米粉面馆", img_path: "/static/images/home/menu8.webp" },
       { mark: "包子粥店", img_path: "/static/images/home/menu9.webp" },
-      { mark: "炸鸡炸串", img_path: "/static/images/home/menu10.webp" }] };
+      { mark: "炸鸡炸串", img_path: "/static/images/home/menu10.webp" }],
 
+      active: 1 };
 
   },
-  methods: {},
-
+  methods: {
+    onChange: function onChange(event) {
+      console.log(event);
+    } },
 
   components: {} };exports.default = _default;
 
