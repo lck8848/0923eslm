@@ -37,16 +37,52 @@
 			</view>
 			<view class="content">
 				<view class="item">
-					
+					<view class="time">限时抽奖</view>
+					<image src="/static/images/find/content.jpg" class="cImg"></image>
+					<view class="title">
+						PS4抽奖
+					</view>
+					<view class="desc">
+						<text class="new">
+							200金币
+						</text>
+						<del class="old">
+							￥2299
+						</del>
+					</view>
 				</view>
 				<view class="item">
-					
+					<view class="time">限时抽奖</view>
+					<image src="/static/images/find/content.jpg" class="cImg"></image>
+					<view class="title">
+						JBL耳机抽奖
+					</view>
+					<view class="desc">
+						<text class="new">
+							200金币
+						</text>
+						<del class="old">
+							￥599
+						</del>
+					</view>
 				</view>
 				<view class="item">
-					
+					<view class="time">限时抽奖</view>
+					<image src="/static/images/find/content.jpg" class="cImg"></image>
+					<view class="title">
+						Beats头戴式耳机抽奖
+					</view>
+					<view class="desc">
+						<text class="new">
+							150金币
+						</text>
+						<del class="old">
+							￥759
+						</del>
+					</view>
 				</view>
 			</view>
-			<view class="more"></view>
+			<a class="more"><text class="viewMore">查看更多</text><image src="/static/images/find/right-arrows.png"></image></a>
 		</view>
 	</view>
 </template>
@@ -210,11 +246,65 @@ export default {
 			width: 100vw;
 			padding: 24rpx 0 30rpx 18rpx;
 			.item {
+				position: relative;
 				width: 222rpx;
 				height: 334rpx;
 				margin-left: 12rpx;
-				border: 1px solid red;
 				box-sizing: border-box;
+				
+				.time{
+					position: absolute;
+					z-index: 1;
+					width: 98rpx;
+					height: 36rpx;
+					font-size: 22rpx;
+					line-height: 36rpx;
+					padding: 5rpx;
+					color: #ffffff;
+					background: #413d3c;
+				}
+				.cImg {
+					width: 220rpx;
+					height: 220rpx;
+				}
+				.title{
+					margin-top: 12rpx;
+					margin-bottom: 8rpx;
+					width: 100%;
+					font-size: 26rpx;
+					color: #333333;
+					text-align: left;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+				.desc{
+					width: 100%;
+					.new{
+						font-size: 26rpx;
+						color: #ff5339;
+						margin-right: 10rpx;
+					}
+					.old{
+						font-size: 22rpx;
+						color: #aaa;
+					}
+				}
+			}
+		}
+		
+		.more{
+			position: relative;
+			.viewMore{
+				color: #999;
+				font-size: 26rpx;
+				font-weight: 400;
+			}
+			image{
+				position: absolute;
+				width: 26rpx;
+				height: 26rpx;
+				top: 12rpx;
 			}
 		}
 	}
