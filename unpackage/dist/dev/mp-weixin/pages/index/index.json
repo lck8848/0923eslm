@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "饿死了么",
-  "usingComponents": {}
+  "usingComponents": {
+    "uni-rate": "/components/uni-rate/uni-rate"
+  }
 }
