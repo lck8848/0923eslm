@@ -42,12 +42,16 @@
 			</van-divider>
 
 			<!-- tab -->
-			<van-tabs :active="active" @click="changeActive">
-				<van-tab title="综合排序"></van-tab>
-				<van-tab title="距离最近"></van-tab>
-				<van-tab title="销量最高"></van-tab>
-				<van-tab title="筛选"></van-tab>
-			</van-tabs>
+			<view class="tab">
+				<van-tabs :active="active" @click="changeActive">
+					<van-tab title="综合排序"></van-tab>
+					<van-tab title="距离最近"></van-tab>
+					<van-tab title="销量最高"></van-tab>
+					<van-tab title="筛选"></van-tab>
+				</van-tabs>
+				<image class="screenImg" src="/static/icon/screen.png" mode=""></image>
+			</view>
+			
 			
 		</view>
 
@@ -55,7 +59,7 @@
 </template>
 
 <script>
-	import { userList } from '../../api/homeApi.js';
+	// import { userList } from '../../api/homeApi.js';
 	export default {
 		data() {
 			return {
@@ -101,7 +105,6 @@
 					},
 				],
 				active: 1,
-      activeName: 'a',
 			}
 		},
 		methods: {
@@ -111,16 +114,28 @@
 			}
 		},
 		components: {},
-		async created(){
-			console.log(11)
-			let res = await userList();
+		// async created(){
+		// 	console.log(11)
+		// 	let res = await userList();
 			
-			console.log(res);
-		}
+		// 	console.log(res);
+		// }
 	}
 </script>
 
 <style lang="scss" scoped>
+	.home-container .tab {
+		position: relative;
+		.screenImg {
+			position: absolute;
+			top: 18px;
+			right: 20px;
+			width: 12px;
+			height: 12px;
+			z-index: 5;
+		}
+	}
+	
 	.home-container .van-grid .text {
 		margin-top: 10rpx;
 		font-size: 28rpx;
