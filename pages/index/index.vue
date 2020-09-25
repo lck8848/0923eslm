@@ -128,10 +128,10 @@
 		position: relative;
 		.screenImg {
 			position: absolute;
-			top: 18px;
-			right: 20px;
-			width: 12px;
-			height: 12px;
+			top: 34rpx;
+			right: 5%;
+			width: 24rpx;
+			height: 24rpx;
 			z-index: 5;
 		}
 	}
