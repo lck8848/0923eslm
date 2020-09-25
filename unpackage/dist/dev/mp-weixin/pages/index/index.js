@@ -195,36 +195,69 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
-var _default =
-{
+
+// import { userList } from '../../api/homeApi.js';
+var _default = {
   data: function data() {
     return {
-      foods: [
-      { mark: "美食", img_path: "/static/images/home/menu1.webp" },
-      { mark: "夜宵", img_path: "/static/images/home/menu2.webp" },
-      { mark: "跑腿代购", img_path: "/static/images/home/menu3.webp" },
-      { mark: "汉堡披萨", img_path: "/static/images/home/menu4.webp" },
-      { mark: "甜品饮品", img_path: "/static/images/home/menu5.webp" },
-      { mark: "速食简餐", img_path: "/static/images/home/menu6.webp" },
-      { mark: "地方小吃", img_path: "/static/images/home/menu7.webp" },
-      { mark: "米粉面馆", img_path: "/static/images/home/menu8.webp" },
-      { mark: "包子粥店", img_path: "/static/images/home/menu9.webp" },
-      { mark: "炸鸡炸串", img_path: "/static/images/home/menu10.webp" }],
+      foods: [{
+        mark: "美食",
+        img_path: "/static/images/home/menu1.webp" },
+
+      {
+        mark: "夜宵",
+        img_path: "/static/images/home/menu2.webp" },
+
+      {
+        mark: "跑腿代购",
+        img_path: "/static/images/home/menu3.webp" },
+
+      {
+        mark: "汉堡披萨",
+        img_path: "/static/images/home/menu4.webp" },
+
+      {
+        mark: "甜品饮品",
+        img_path: "/static/images/home/menu5.webp" },
+
+      {
+        mark: "速食简餐",
+        img_path: "/static/images/home/menu6.webp" },
+
+      {
+        mark: "地方小吃",
+        img_path: "/static/images/home/menu7.webp" },
+
+      {
+        mark: "米粉面馆",
+        img_path: "/static/images/home/menu8.webp" },
+
+      {
+        mark: "包子粥店",
+        img_path: "/static/images/home/menu9.webp" },
+
+      {
+        mark: "炸鸡炸串",
+        img_path: "/static/images/home/menu10.webp" }],
+
 
       active: 1 };
 
   },
   methods: {
-    onChange: function onChange(event) {
-      console.log(event);
+    changeActive: function changeActive(event) {
+      this.active = event.detail.index;
+      // console.log(this.active);
     } },
 
-  components: {} };exports.default = _default;
+  components: {}
+  // async created(){
+  // 	console.log(11)
+  // 	let res = await userList();
+
+  // 	console.log(res);
+  // }
+};exports.default = _default;
 
 /***/ }),
 /* 17 */

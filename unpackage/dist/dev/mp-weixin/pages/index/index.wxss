@@ -24,6 +24,17 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.home-container .tab.data-v-57280228 {
+  position: relative;
+}
+.home-container .tab .screenImg.data-v-57280228 {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  z-index: 5;
+}
 .home-container .van-grid .text.data-v-57280228 {
   margin-top: 10rpx;
   font-size: 28rpx;
