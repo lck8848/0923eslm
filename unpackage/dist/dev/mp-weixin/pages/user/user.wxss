@@ -62,8 +62,8 @@
 .user-container .top .right.data-v-80842834 {
   color: #fff;
 }
-.user-container .van-cell.data-v-80842834 {
-  padding: 15rpx 25rpx;
+.container .user-container .space .van-cell-group .van-cell.data-v-80842834 {
+  margin-top: 20px !important;
 }
 .user-container .van-cell .img.data-v-80842834 {
   width: 44rpx;

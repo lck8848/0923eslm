@@ -35,7 +35,7 @@
 		            <van-cell value="限时6元开通" is-link value-class="red">
 		                <view slot="title">
 		                    <view class="van-cell-text">
-		                        <van-icon name="/imges/crown.png"></van-icon>
+		                        <van-icon name="/static/images/home/crown.png"></van-icon>
 		                        <text class="left">超级会员</text> · <text class="center">每月领20元红包</text>
 		                    </view>
 		                </view>
@@ -51,7 +51,13 @@
 		        为你推荐
 		    </van-divider>
 		
-		    
+		    <!-- tab -->
+			<van-tabs :active="active">
+			  <van-tab title="综合排序">综合排序</van-tab>
+			  <van-tab title="距离最近">距离最近</van-tab>
+			  <van-tab title="销量最高">销量最高</van-tab>
+			  <van-tab title="筛选">筛选</van-tab>
+			</van-tabs>
 		</view>
 
 	</view>
@@ -72,14 +78,16 @@
 				            {mark:"米粉面馆",img_path:"/static/images/home/menu8.webp"},
 				            {mark:"包子粥店",img_path:"/static/images/home/menu9.webp"},
 				            {mark:"炸鸡炸串",img_path:"/static/images/home/menu10.webp"},
-				        ]
+				        ],
+						active:1
 			}
 		},
 		methods: {
-
+			  onChange(event) {
+			   console.log(event);
+			  },
 		},
 		components:{
-			
 		}
 	}
 </script>
