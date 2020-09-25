@@ -42,5 +42,6 @@ export default {
 	font-size: 28.8rpx;
 	text-align: center;
 	border-radius: 6rpx;
+	margin-top: 10rpx;
 }
 </style>
