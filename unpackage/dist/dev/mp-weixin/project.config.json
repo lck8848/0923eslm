@@ -4,6 +4,7 @@
         "ignore": []
     },
     "setting": {
+<<<<<<< HEAD
         "urlCheck": false,
         "es6": true,
         "enhance": false,
@@ -33,13 +34,15 @@
         "userConfirmedUseCompilerModuleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": []
+=======
+        "urlCheck": true,
+        "es6": true
+>>>>>>> 00a7e62686cbfa8addbc2b48c79a692e19527772
     },
     "compileType": "miniprogram",
     "libVersion": "",
     "appid": "wx9952fe6ac22b0492",
     "projectname": "0923eslm",
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
     "condition": {
         "search": {
             "current": -1,
@@ -49,13 +52,28 @@
             "current": -1,
             "list": []
         },
+        "plugin": {
+            "current": -1,
+            "list": []
+        },
         "game": {
+            "current": -1,
+            "list": []
+        },
+        "gamePlugin": {
             "current": -1,
             "list": []
         },
         "miniprogram": {
             "current": -1,
-            "list": []
+            "list": [
+                {
+                    "id": -1,
+                    "name": "pages/shop/shop",
+                    "pathName": "pages/shop/shop",
+                    "scene": null
+                }
+            ]
         }
     }
 }
