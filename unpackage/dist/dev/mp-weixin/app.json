@@ -4,7 +4,8 @@
     "pages/find/find",
     "pages/order/order",
     "pages/user/user",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/shop/shop"
   ],
   "subPackages": [],
   "window": {
@@ -54,6 +55,7 @@
     "van-icon": "/wxcomponents/vant/dist/icon/index",
     "van-cell-group": "/wxcomponents/vant/dist/cell-group/index",
     "van-tab": "/wxcomponents/vant/dist/tab/index",
-    "van-tabs": "/wxcomponents/vant/dist/tabs/index"
+    "van-tabs": "/wxcomponents/vant/dist/tabs/index",
+    "van-field": "/wxcomponents/vant/dist/field/index"
   }
 }
