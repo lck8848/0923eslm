@@ -19,6 +19,11 @@
 		"style": {
 			"navigationBarTitleText": "我的"
 		}
+	}, {
+		"path": "pages/login/login",
+		"style": {
+			"navigationBarTitleText": "登录"
+		}
 	}],
 	"tabBar": {
 		"color": "#7A7E83",
