@@ -22,7 +22,7 @@
 		    </view>
 		
 		    <!-- 单元格 -->
-		    <van-cell-group>
+		    <van-cell-group class="space">
 		        <van-cell is-link>
 		            <view slot="title">
 		                <view class="van-cell-text">
@@ -31,7 +31,7 @@
 		        </van-cell>
 		    </van-cell-group>
 		
-		    <van-cell-group>
+		    <van-cell-group class="space">
 		        <van-cell is-link>
 		            <view slot="title">
 		                <view class="van-cell-text">
@@ -46,7 +46,7 @@
 		        </van-cell>
 		    </van-cell-group>
 		
-		    <van-cell-group>
+		    <van-cell-group class="space">
 		        <van-cell is-link>
 		            <view slot="title">
 		                <view class="van-cell-text">
@@ -119,14 +119,18 @@
 	.user-container .top .right{
 	    color: #fff;
 	}
-	
-	// .user-container .van-cell-group {
+	.container .user-container .space .van-cell-group .van-cell {
+		margin-top: 20px !important;
+	}
+	// .user-container .space .van-cell{
 	//     margin-top: 20rpx;
+	// 	background-color: black;
 	// }
 	
-	.user-container .van-cell {
-	    padding: 15rpx 25rpx;
-	}
+	// .user-container .van-cell {
+	//     padding: 15rpx 25rpx;
+	// 	font-size: 50px;
+	// }
 	
 	.user-container .van-cell .img {
 	    width: 44rpx;

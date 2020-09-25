@@ -53,10 +53,10 @@
 		
 		    <!-- tab -->
 			<van-tabs :active="active">
-			  <van-tab title="标签 1">内容 1</van-tab>
-			  <van-tab title="标签 2">内容 2</van-tab>
-			  <van-tab title="标签 3">内容 3</van-tab>
-			  <van-tab title="标签 4">内容 4</van-tab>
+			  <van-tab title="综合排序">综合排序</van-tab>
+			  <van-tab title="距离最近">距离最近</van-tab>
+			  <van-tab title="销量最高">销量最高</van-tab>
+			  <van-tab title="筛选">筛选</van-tab>
 			</van-tabs>
 		</view>
 
