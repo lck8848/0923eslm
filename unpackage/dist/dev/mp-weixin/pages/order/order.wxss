@@ -44,4 +44,15 @@
   width: 500rpx;
   height: 500rpx;
 }
+.order-container .nologin .btn.data-v-127632e4 {
+  width: 240rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  background-color: #56d176;
+  color: #fff;
+  font-size: 28.8rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  margin-top: 10rpx;
+}
 

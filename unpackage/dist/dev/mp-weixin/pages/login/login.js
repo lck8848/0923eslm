@@ -156,10 +156,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return { "username": "",
-      "sms": "" };
+    return {
+      username: '',
+      password: '' };
+
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    login: function login() {
+      console.log(this.username, this.password);
+    } } };exports.default = _default;
 
 /***/ }),
 
