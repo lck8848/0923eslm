@@ -52,14 +52,38 @@
 				<image class="screenImg" src="/static/icon/screen.png" mode=""></image>
 			</view>
 			
-			
-		</view>
+			<view class="merchant-container">
+				<view class="item" v-for="item in merchantList">
+					<view class="left">
+						<image class="food_img" :src="item.m_img" mode=""></image>
+					</view>
+					<view class="right">
+						<view class="title">{{ item.m_name }}</view>
+						<view class="sales">
+							<uni-rate size="13" class="rateAbsu" allow-half :value="item.grade" />{{ item.grade }} 月售{{ item.sales_number }}单
+						</view>
+						<view class="footer">
+							<view class="distribution">
+								￥{{ item.start_money }}起送 | 免配送费
+							</view>
+							<view class="distance">
+								{{ item.distance }}km | {{ item.time }}分钟
+							</view>
+						</view>
+						<view class="specialty">
+							{{item.signboard}}
+						</view>
+					</view>
+					
+				</view>
+			</view>
+			</view>
 
 	</view>
 </template>
 
 <script>
-	// import { userList } from '../../api/homeApi.js';
+	import { merchantList } from '../../api/homeApi.js';
 	export default {
 		data() {
 			return {
@@ -105,25 +129,113 @@
 					},
 				],
 				active: 1,
+				 merchantList:[]
 			}
 		},
 		methods: {
+			// 根据指定字段给数组进行排序
+			sortMerList(filed,bool){
+				this.merchantList = this.merchantList.sort((x,y)=>{
+					// 升序
+					let a = parseInt(x[filed]);
+					let b = parseInt(y[filed]);
+					if(bool){
+						if(a > b){
+							return 1;
+						}else {
+							return -1;
+						}
+					}else {
+						// 降序
+						if(a < b){
+							return 1;
+						}else {
+							return -1;
+						}
+					}
+					
+				})
+			},
 			changeActive(event){
 				this.active = event.detail.index;
-				// console.log(this.active);
+				switch(this.active){
+					case 1:
+						//距离最近排序 
+						this.sortMerList("distance",true);
+						break;
+					case 2:
+						// 销量最高排序
+						this.sortMerList("sales_number",false);
+						console.log(this.merchantList);
+						break;
+					default:
+						break;
+				}
+			},
+			// 获取商家所有商家
+			async getMerchantList(){
+				let res = await merchantList();
+				this.merchantList = res.merchantList;
+				// 默认第一个加载对距离最近排序
+				this.sortMerList("distance",true);
 			}
 		},
-		components: {},
-		// async created(){
-		// 	console.log(11)
-		// 	let res = await userList();
-			
-		// 	console.log(res);
-		// }
+		components: {
+		},
+		created(){
+			// 初始化加载，获取商家信息
+			this.getMerchantList();
+		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	
+	.home-container .merchant-container .item {
+		display: flex;
+		padding: 10rpx 20rpx 10rpx;
+		.left {
+			width: 180rpx;
+			height: 180rpx;
+			margin-right: 20rpx;
+			.food_img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.sales {
+			display: flex;
+			margin: 10rpx 0;
+			margin-left: 140rpx;
+			.rateAbsu {
+				position: absolute;
+				top: 37%;
+				left: 0;
+			}
+		}
+		.right {
+			flex: 1;
+			font-size: 24rpx;
+			color: #666;
+			position: relative;
+			.title {
+				font-size: 32rpx;
+				font-weight: 900;
+				color: #000;
+			}
+			.footer {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 20rpx;
+				.distribution {
+				}
+				.distance {
+					color: #999;
+				}
+			}
+		}
+	}
+	
 	.home-container .tab {
 		position: relative;
 		.screenImg {

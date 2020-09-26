@@ -100,7 +100,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  uniRate: function() {
+    return __webpack_require__.e(/*! import() | components/uni-rate/uni-rate */ "components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/components/uni-rate/uni-rate.vue */ 73))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -136,69 +140,93 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 68));
 
-// import { userList } from '../../api/homeApi.js';
-var _default = {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 71);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
+{
   data: function data() {
     return {
       foods: [{
@@ -242,23 +270,64 @@ var _default = {
         img_path: "/static/images/home/menu10.webp" }],
 
 
-      active: 1 };
+      active: 1,
+      merchantList: [] };
 
   },
   methods: {
+    // 根据指定字段给数组进行排序
+    sortMerList: function sortMerList(filed, bool) {
+      this.merchantList = this.merchantList.sort(function (x, y) {
+        // 升序
+        var a = parseInt(x[filed]);
+        var b = parseInt(y[filed]);
+        if (bool) {
+          if (a > b) {
+            return 1;
+          } else {
+            return -1;
+          }
+        } else {
+          // 降序
+          if (a < b) {
+            return 1;
+          } else {
+            return -1;
+          }
+        }
+
+      });
+    },
     changeActive: function changeActive(event) {
       this.active = event.detail.index;
-      // console.log(this.active);
+      switch (this.active) {
+        case 1:
+          //距离最近排序 
+          this.sortMerList("distance", true);
+          break;
+        case 2:
+          // 销量最高排序
+          this.sortMerList("sales_number", false);
+          console.log(this.merchantList);
+          break;
+        default:
+          break;}
+
+    },
+    // 获取商家所有商家
+    getMerchantList: function getMerchantList() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  (0, _homeApi.merchantList)());case 2:res = _context.sent;
+                _this.merchantList = res.merchantList;
+                // 默认第一个加载对距离最近排序
+                _this.sortMerList("distance", true);case 5:case "end":return _context.stop();}}}, _callee);}))();
     } },
 
-  components: {}
-  // async created(){
-  // 	console.log(11)
-  // 	let res = await userList();
+  components: {},
 
-  // 	console.log(res);
-  // }
-};exports.default = _default;
+  created: function created() {
+    // 初始化加载，获取商家信息
+    this.getMerchantList();
+  } };exports.default = _default;
 
 /***/ }),
 /* 18 */
