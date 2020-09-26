@@ -53,7 +53,7 @@
 			</view>
 			
 			<view class="merchant-container">
-				<view class="item" v-for="item in merchantList">
+				<view class="item" v-for="item in merchantList" :key="item.id">
 					<view class="left">
 						<image class="food_img" :src="item.m_img" mode=""></image>
 					</view>
@@ -83,7 +83,7 @@
 </template>
 
 <script>
-	import { merchantList } from '../../api/homeApi.js';
+	import { merchantList } from '@/api/homeApi.js';
 	export default {
 		data() {
 			return {
