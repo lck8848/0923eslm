@@ -2,49 +2,6 @@
 	<view class="container">
 		<!--pages/home/home.wxml-->
 		<view class="home-container">
-			<!-- 搜索 -->
-			
-			<van-search value="" class="search" background="#008EFF" placeholder="搜索饿了么商家 , 商品名称" />
-			<view class="empty">
-				
-			</view>
-			<!-- 宫格 -->
-			<van-grid class="vanGridTop" column-num="5" :border="false">
-				<van-grid-item use-slot v-for="item in foods" :key="item.mark" @click="getClassIfyPage(item.f_id)">
-					<image style="width: 100%; height: 88rpx;" :src="item.img_path" />
-					<view class="text">{{ item.mark }}</view>
-				</van-grid-item>
-			</van-grid>
-
-			<!-- 品质套餐 -->
-			<view class="quality">
-				<view class="top">
-					<view class="left">
-						<view class="title">品质套餐</view>
-						<view class="content">搭配齐全吃得好</view>
-						<view class="buy">立即抢购 ></view>
-					</view>
-					<view class="right">
-						<image class="img" src="/static/images/home/food.webp"></image>
-					</view>
-				</view>
-				<view class="footer">
-					<van-cell value="限时6元开通" is-link value-class="red">
-						<view slot="title">
-							<view class="van-cell-text">
-								<van-icon name="/static/images/home/crown.png"></van-icon>
-								<text class="left">超级会员</text> · <text class="center">每月领20元红包</text>
-							</view>
-						</view>
-					</van-cell>
-				</view>
-			</view>
-
-			<!-- 分割线 -->
-			<van-divider contentPosition="center" customStyle="color: #000; border-color: #eee; font-size: 32rpx;">
-				为你推荐
-			</van-divider>
-
 			<!-- tab -->
 			<view class="tab" id="menu">
 				<van-tabs :active="active" @click="changeActive">
@@ -91,65 +48,14 @@
 
 <script>
 	import { merchantList } from '../../api/homeApi.js';
-	import merchant from '@/components/merchant/merchant.vue';
 	export default {
+		props:['fId','isMenuFix'],
 		data() {
 			return {
-				foods: [{
-						f_id: "1",
-						mark: "美食",
-						img_path: "/static/images/home/menu1.webp"
-					},
-					{
-						f_id: "2",
-						mark: "夜宵",
-						img_path: "/static/images/home/menu2.webp"
-					},
-					{
-						f_id: "3",
-						mark: "跑腿代购",
-						img_path: "/static/images/home/menu3.webp"
-					},
-					{
-						f_id: "4",
-						mark: "汉堡披萨",
-						img_path: "/static/images/home/menu4.webp"
-					},
-					{
-						f_id: "5",
-						mark: "甜品饮品",
-						img_path: "/static/images/home/menu5.webp"
-					},
-					{
-						f_id: "6",
-						mark: "速食简餐",
-						img_path: "/static/images/home/menu6.webp"
-					},
-					{
-						f_id: "7",
-						mark: "地方小吃",
-						img_path: "/static/images/home/menu7.webp"
-					},
-					{
-						f_id: "8",
-						mark: "米粉面馆",
-						img_path: "/static/images/home/menu8.webp"
-					},
-					{
-						f_id: "9",
-						mark: "包子粥店",
-						img_path: "/static/images/home/menu9.webp"
-					},
-					{
-						f_id: "10",
-						mark: "炸鸡炸串",
-						img_path: "/static/images/home/menu10.webp"
-					},
-				],
-				active: 1,
 				 merchantList:[],
-				 isMenuFix: false,
+				 isMenuFix: this.isMenuFix,
 				 menuTop:0,
+				 active: 1
 				
 			}
 		},
@@ -158,13 +64,6 @@
 				uni.pageScrollTo({
 					scrollTop: 0,
 					duration: 200
-				});
-			},
-			// 根据分类id进行跳转
-			getClassIfyPage(id){
-				//在起始页面跳转到test.vue页面并传递参数
-				uni.navigateTo({
-				    url: `/pages/classify/classify?classify=${id}`
 				});
 			},
 			// 根据距离显示
@@ -216,24 +115,31 @@
 			},
 			// 获取商家所有商家
 			async getMerchantList(){
+				let params = {};
+				if(this.fId){
+					params.f_id = this.fId;
+				}
 				
-				let res = await merchantList({});
+				let res = await merchantList(params);
 				this.merchantList = res.merchantList;
 				// 默认第一个加载对距离最近排序
 				this.sortMerList("distance",true);
 			}
 		},
-		onPageScroll(e){
-			// 滚到到一定高度显示
-			let currentHeigth = e.scrollTop;
-			let scrollHeigth = 200;
-			if(currentHeigth > scrollHeigth){
-				this.isMenuFix = true;
-			}else {
-				this.isMenuFix = false;
-			}
+		// onPageScroll(e){
+		// 	// 滚到到一定高度显示
+		// 	console.log(1);
+		// 	return;
+		// 	let currentHeigth = e.scrollTop;
+		// 	console.log(currentHeigth);
+		// 	let scrollHeigth = 200;
+		// 	if(currentHeigth > scrollHeigth){
+		// 		this.isMenuFix = true;
+		// 	}else {
+		// 		this.isMenuFix = false;
+		// 	}
 			
-		},
+		// },
 		onReady(){
 			const query = uni.createSelectorQuery();
 			query.select('#menu').boundingClientRect(data => {
@@ -251,11 +157,15 @@
 </script>
 
 <style lang="scss" scoped>
-	.search {
+	#menu {
 		position: fixed;
+		top: 44px;
+		left: 0;
 		width: 100%;
-		z-index: 20;
+		background-color: #fff;
+		z-index: 15;
 	}
+
 	.filex {
 		display: flex;
 		position: fixed;
@@ -274,7 +184,9 @@
 			height: 55rpx;
 		}
 	}
-	
+	.home-container .merchant-container {
+		margin-top: 80rpx;
+	}
 	.home-container .merchant-container .item {
 		display: flex;
 		padding: 10rpx 20rpx 10rpx;
@@ -331,95 +243,11 @@
 			z-index: 5;
 		}
 	}
-	.empty {
-		height: 100rpx;
-	}
+	
 	.home-container .van-grid .text {
 		margin-top: 10rpx;
 		font-size: 28rpx;
 		color: #666;
 	}
 
-	.quality .top {
-		display: flex;
-		justify-content: space-between;
-		background-color: #f6f6f6;
-		padding: 15rpx 30rpx;
-		margin-bottom: 10rpx;
-	}
-
-	.quality {
-		margin-top: 20rpx;
-		padding: 0 20rpx;
-	}
-
-	.quality .top .right {
-		width: 300rpx;
-		height: 200rpx;
-	}
-
-	// .home-container .van-grid .van-grid-item .content-class {
-	//     padding: 30rpx 16rpx 0rpx;
-	// }
-	.van-grid-item__content--center {
-		padding: 0;
-	}
-
-	// content-class   
-	.quality .top .left .title {
-		font-weight: 900;
-	}
-
-	.quality .top .left .content {
-		font-size: 32rpx;
-		margin-bottom: 15rpx;
-		color: #9a9a9a;
-	}
-
-	.quality .top .left .buy {
-		color: #b68f71;
-		font-size: 32rpx;
-		font-weight: 700;
-	}
-
-
-	.quality .top .right .img {
-		width: 100%;
-		height: 100%;
-	}
-
-	.footer .van-cell {
-		background-color: #f7e3ac;
-		padding: 20rpx 15rpx;
-	}
-
-	.quality .footer .red {
-		color: #7b6631;
-		font-size: 25rpx;
-	}
-
-	.quality .footer .van-cell .van-cell-text .left {
-		margin-left: 5rpx;
-		font-weight: 900;
-		color: #7b6631;
-		font-size: 30rpx;
-	}
-
-	.quality .footer .van-cell .van-cell-text .center {
-		color: #7b6631;
-		font-size: 20rpx;
-	}
-
-	.classify {
-		display: flex;
-		justify-content: space-around;
-	}
-
-	.classify .item {
-		font-size: 32rpx;
-	}
-
-	.classify .selected {
-		font-weight: 900;
-	}
 </style>
