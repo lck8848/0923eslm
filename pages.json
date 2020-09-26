@@ -83,8 +83,8 @@
 			"van-field": "/wxcomponents/vant/dist/field/index",
 			"van-tab": "/wxcomponents/vant/dist/tab/index",
 			"van-tabs": "/wxcomponents/vant/dist/tabs/index",
-			"van-card": "/wxcomponents/vant/dist/card/index",
-			"van-field": "/wxcomponents/vant/dist/field/index"
+			"van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
+			"van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index" 
 		}
 	}
 }

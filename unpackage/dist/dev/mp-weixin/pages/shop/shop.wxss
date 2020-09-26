@@ -180,4 +180,352 @@
   background: #fff4f4;
   color: #5c1603;
 }
+.container .app-dp .info .activity-tags.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  margin: 3.2vw auto 0;
+  width: 80vw;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.container .app-dp .info .activity-tags .left .item.data-v-71bf3ec6 {
+  float: left;
+  font-size: 20rpx;
+  margin: 0.666667vw;
+  padding: 0.266667vw 1.066667vw;
+  color: #ff4b33;
+  border: 1px solid #ffc9c1;
+  background-color: #fff;
+}
+.container .app-dp .info .activity-tags .right.data-v-71bf3ec6 {
+  margin: 0.666667vw;
+  padding: 0.266667vw 1.066667vw;
+  font-size: 20rpx;
+  padding-right: 2.933333vw;
+  text-align: right;
+  color: #999;
+  width: 16.266667vw;
+}
+.container .app-dp .info .activity-tags .right.data-v-71bf3ec6::after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-width: 1.066667vw 0.933333vw 0;
+  border-color: #999 transparent transparent;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 0;
+}
+.container .app-dp .info .tmryy.data-v-71bf3ec6 {
+  font-size: 20rpx;
+  margin: 2.266667vw auto 2.666667vw;
+  padding: 0;
+  white-space: nowrap;
+  width: 80vw;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.container .app-dp .data0.data-v-71bf3ec6 {
+  padding: 1.866667vw 0 0;
+  background: #fff;
+}
+.container .app-dp .data0 .bybt.data-v-71bf3ec6 {
+  border-radius: 0.8vw;
+  display: block;
+  margin: 0 auto;
+  height: 23.466667vw;
+  width: 91.466667vw;
+  max-width: 100%;
+}
+.container .app-dp .data0 .recommend.data-v-71bf3ec6 {
+  padding-top: 4.266667vw;
+  background-color: #fff;
+}
+.container .app-dp .data0 .recommend .rec-p.data-v-71bf3ec6 {
+  margin: 0;
+  margin-bottom: 2.666667vw;
+  padding-left: 4.266667vw;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.container .app-dp .data0 .recommend .rec-a.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  overflow-x: scroll;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item.data-v-71bf3ec6:first-child {
+  margin-left: 4.266667vw;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item.data-v-71bf3ec6 {
+  width: 32vw;
+  height: 32vh;
+  margin-right: 2.666667vw;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+          flex: none;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item image.data-v-71bf3ec6 {
+  display: block;
+  width: 32vw;
+  height: 30vw;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item .info.data-v-71bf3ec6 {
+  -webkit-transform: translateY(-50rpx);
+          transform: translateY(-50rpx);
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item .info .title.data-v-71bf3ec6 {
+  width: 32vw;
+  font-size: 28rpx;
+  color: #333;
+  margin: 1.866667vw 0 0.933333vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item .info .desc.data-v-71bf3ec6 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 20rpx;
+  color: #999;
+  margin-bottom: 1.866667vw;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item .info .buy.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding-right: 0.266667vw;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item .info .buy .price.data-v-71bf3ec6 {
+  font-size: 36rpx;
+  color: #ff5339;
+}
+.container .app-dp .data0 .recommend .rec-a .rec-v .item .info .buy image.data-v-71bf3ec6 {
+  width: 44rpx;
+  height: 44rpx;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar.data-v-71bf3ec6 {
+  position: relative;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList.data-v-71bf3ec6 {
+  position: absolute;
+  width: 576rpx;
+  height: 100%;
+  top: 0rpx;
+  left: 170rpx;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller.data-v-71bf3ec6 {
+  height: 100%;
+  padding-bottom: 10.666667vw;
+  overflow-y: auto;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item.data-v-71bf3ec6 {
+  margin: 0;
+  padding: 0;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role.data-v-71bf3ec6 {
+  position: relative;
+  margin-left: 2.666667vw;
+  padding: 2vw 8vw 2vw 0;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role .category-title.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  overflow: hidden;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role .category-title .category-name.data-v-71bf3ec6 {
+  margin-right: 1.333333vw;
+  font-weight: 700;
+  font-size: 24rpx;
+  color: #666;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+          flex: none;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role .category-title .category-desc.data-v-71bf3ec6 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  color: #999;
+  font-size: 20rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data.data-v-71bf3ec6 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  min-height: 30.666667vw;
+  padding-left: 2.666667vw;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  min-height: 27.466667vw;
+  padding: 2.666667vw 0;
+  margin-bottom: 0.133333vw;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-logo.data-v-71bf3ec6 {
+  width: 25.333333vw;
+  height: 25.333333vw;
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+          flex: none;
+  margin-right: 2.666667vw;
+  position: relative;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-logo image.data-v-71bf3ec6 {
+  max-width: 100%;
+  width: 100%;
+  height: 190rpx;
+  border-radius: 0.533333vw;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info.data-v-71bf3ec6 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  position: relative;
+  padding-bottom: 6.666667vw;
+  padding-right: 4vw;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-name.data-v-71bf3ec6 {
+  margin: 0;
+  font-weight: 400;
+  position: relative;
+  padding-right: 4vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: start;
+          align-items: start;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-name .fooddetails-nameText.data-v-71bf3ec6 {
+  font-weight: 700;
+  overflow: hidden;
+  font-size: 30rpx;
+  white-space: nowrap;
+  width: 40vw;
+  text-overflow: ellipsis;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-desc.data-v-71bf3ec6 {
+  margin: 1vw 0;
+  width: 42.666667vw;
+  font-weight: 400;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 20rpx;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-sales.data-v-71bf3ec6 {
+  font-size: 20rpx;
+  margin: 1vw 0 !important;
+  color: #999;
+  line-height: 1;
+  min-height: 1em;
+  font-weight: 400;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity .mini-tag.data-v-71bf3ec6 {
+  position: relative;
+  font-size: 40rpx;
+  color: transparent;
+  white-space: nowrap;
+  height: 4vw;
+  padding: 0 0.8vw;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity .mini-tag .foodcommon-rateGhost.data-v-71bf3ec6 {
+  position: absolute;
+  left: -20rpx;
+  top: -14rpx;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  font-size: 40rpx;
+  border-radius: 0.266667vw;
+  border: 0.26667vw solid rgba(235, 102, 82, 0.3);
+  color: #eb6551;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price.data-v-71bf3ec6 {
+  position: absolute;
+  bottom: 26rpx;
+  color: #ff5339;
+  font-size: 0.4rem;
+  line-height: 4.266667vw;
+  padding-bottom: 0.933333vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+          align-items: baseline;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price text.data-v-71bf3ec6 {
+  margin-right: 0.266667vw;
+  font-size: 30rpx;
+  line-height: 4.266667vw;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price ._del.data-v-71bf3ec6 {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 1.6vw;
+  line-height: 4.266667vw;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button.data-v-71bf3ec6 {
+  position: absolute;
+  right: 4vw;
+  bottom: 18rpx;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-minPurchase.data-v-71bf3ec6 {
+  font-size: 20rpx;
+  color: #666;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-entitybutton.data-v-71bf3ec6 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-entitybutton image.data-v-71bf3ec6 {
+  width: 44rpx;
+  height: 44rpx;
+}
 
