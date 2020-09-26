@@ -1,0 +1,1 @@
+<view class="classify-container"><merchant vue-id="91ba9280-1" fId="{{classify}}" isMenuFix="{{isMenuFix}}" bind:__l="__l"></merchant></view>
