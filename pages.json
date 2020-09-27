@@ -35,10 +35,7 @@
             "path" : "pages/classify/classify",
             "style" : {}
         }
-        ,{
-            "path" : "components/merchant/merchant",
-            "style" : {}
-        }
+        
     ],
 	"tabBar": {
 		"color": "#7A7E83",
