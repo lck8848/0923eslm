@@ -5,7 +5,8 @@
         "pages/order/order",
         "pages/user/user",
         "pages/login/login",
-        "pages/shop/shop"
+        "pages/shop/shop",
+        "pages/classify/classify"
     ],
     "subPackages": [],
     "window": {
@@ -57,14 +58,8 @@
         "van-field": "/wxcomponents/vant/dist/field/index",
         "van-tab": "/wxcomponents/vant/dist/tab/index",
         "van-tabs": "/wxcomponents/vant/dist/tabs/index",
-<<<<<<< HEAD
         "van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
         "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
     },
-    "sitemapLocation": "sitemap32.json"
-=======
-        "van-card": "/wxcomponents/vant/dist/card/index"
-    },
-    "sitemapLocation": "sitemap94.json"
->>>>>>> 78d049b1c60cfad7eff11ea49c24e944126204b0
+    "sitemapLocation": "sitemap2.json"
 }
