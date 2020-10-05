@@ -1,6 +1,10 @@
 {
   "usingComponents": {
     "uni-rate": "/components/uni-rate/uni-rate"
+<<<<<<< HEAD
   },
   "component": true
+=======
+  }
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 }

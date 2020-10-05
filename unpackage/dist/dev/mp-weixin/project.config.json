@@ -1,8 +1,22 @@
 {
-    "description": "项目配置文件。",
-    "packOptions": {
-        "ignore": []
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "",
+  "appid": "wx9952fe6ac22b0492",
+  "projectname": "0923eslm",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
     },
+<<<<<<< HEAD
     "setting": {
         "urlCheck": false,
         "es6": true,
@@ -57,5 +71,19 @@
             "current": -1,
             "list": []
         }
+=======
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
     }
+  }
 }

@@ -105,11 +105,19 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
+<<<<<<< HEAD
 /******/ 		var cssChunks = {"components/uni-rate/uni-rate":1,"components/merchant/merchant":1,"components/uni-icons/uni-icons":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
 /******/ 				var href = "" + ({"components/uni-rate/uni-rate":"components/uni-rate/uni-rate","components/merchant/merchant":"components/merchant/merchant","components/test/test":"components/test/test","components/uni-icons/uni-icons":"components/uni-icons/uni-icons"}[chunkId]||chunkId) + ".wxss";
+=======
+/******/ 		var cssChunks = {"components/uni-rate/uni-rate":1,"components/uni-icons/uni-icons":1};
+/******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
+/******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
+/******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
+/******/ 				var href = "" + ({"components/uni-rate/uni-rate":"components/uni-rate/uni-rate","components/uni-icons/uni-icons":"components/uni-icons/uni-icons"}[chunkId]||chunkId) + ".wxss";
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

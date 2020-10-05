@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <view class="classify-container"><merchant vue-id="91ba9280-1" fId="{{classify}}" isMenuFix="{{isMenuFix}}" bind:__l="__l"></merchant><test vue-id="91ba9280-2" bind:__l="__l"></test></view>
+=======
+<view class="classify-container"><merchant vue-id="91ba9280-1" fId="{{classify}}" isMenuFix="{{isMenuFix}}" bind:__l="__l"></merchant></view>
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
