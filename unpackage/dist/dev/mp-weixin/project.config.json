@@ -3,8 +3,14 @@
     "packOptions": {
         "ignore": []
     },
+<<<<<<< HEAD
     "setting": {
         "urlCheck": true,
+=======
+<<<<<<< HEAD
+    "setting": {
+        "urlCheck": false,
+>>>>>>> 994cb1dc02bb5c0c552986a612ff9480ccab8241
         "es6": true,
         "enhance": false,
         "postcss": true,
@@ -33,6 +39,7 @@
         "userConfirmedUseCompilerModuleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": []
+<<<<<<< HEAD
     },
     "compileType": "miniprogram",
     "libVersion": "",
@@ -72,5 +79,44 @@
                 }
             ]
         }
+=======
+    },
+    "compileType": "miniprogram",
+    "libVersion": "",
+    "appid": "wx9952fe6ac22b0492",
+    "projectname": "0923eslm",
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "search": {
+            "current": -1,
+            "list": []
+        },
+        "conversation": {
+            "current": -1,
+            "list": []
+        },
+        "game": {
+            "current": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "current": -1,
+            "list": []
+        }
+=======
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
+>>>>>>> 994cb1dc02bb5c0c552986a612ff9480ccab8241
     }
 }

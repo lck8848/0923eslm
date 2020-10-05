@@ -145,7 +145,7 @@
 						img_path: "/static/images/home/menu10.webp"
 					},
 				],
-				active: 1,
+				active: 0,
 				 merchantList:[],
 				 isMenuFix: false,
 				 menuTop:0,
@@ -176,10 +176,10 @@
 			},
 			// 根据指定字段给数组进行排序
 			sortMerList(filed,bool){
-				this.merchantList = this.merchantList.sort((x,y)=>{
+				this.merchantList.sort((x,y)=>{
 					// 升序
-					let a = parseInt(x[filed]);
-					let b = parseInt(y[filed]);
+					let a = parseFloat(x[filed]);
+					let b = parseFloat(y[filed]);
 					if(bool){
 						if(a > b){
 							return 1;
@@ -200,6 +200,10 @@
 			changeActive(event){
 				this.active = event.detail.index;
 				switch(this.active){
+					case 0:
+						//距离最近排序 
+						this.sortMerList("m_id",false);
+						break;
 					case 1:
 						//距离最近排序 
 						this.sortMerList("distance",true);
@@ -215,11 +219,10 @@
 			},
 			// 获取商家所有商家
 			async getMerchantList(){
-				
 				let res = await merchantList({});
 				this.merchantList = res.merchantList;
-				// 默认第一个加载对距离最近排序
-				this.sortMerList("distance",true);
+				// 默认第一个加载对新商家最近排序
+				this.sortMerList("m_id",false);
 			}
 		},
 		onPageScroll(e){

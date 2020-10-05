@@ -904,7 +904,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7518,7 +7518,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7539,14 +7539,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7631,7 +7631,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8185,6 +8185,7 @@ internalMixin(Vue);
     genFun.prototype = Object.create(Gp);
     return genFun;
   };
+<<<<<<< HEAD
 
   // Within the body of any async function, `await x` is transformed to
   // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
@@ -8300,6 +8301,123 @@ internalMixin(Vue);
         return doneResult();
       }
 
+=======
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  runtime.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return Promise.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new Promise(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  runtime.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList)
+    );
+
+    return runtime.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
       context.method = method;
       context.arg = arg;
 
@@ -8552,12 +8670,21 @@ internalMixin(Vue);
 
     // Return an iterator with no values.
     return { next: doneResult };
+<<<<<<< HEAD
   }
   runtime.values = values;
 
   function doneResult() {
     return { value: undefined, done: true };
   }
+=======
+  }
+  runtime.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 
   Context.prototype = {
     constructor: Context,
@@ -8771,9 +8898,15 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 21:
+<<<<<<< HEAD
+/*!******************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/homeApi.js ***!
+  \******************************************************************/
+=======
 /*!*****************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/homeApi.js ***!
   \*****************************************************************/
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8790,9 +8923,15 @@ function _userList() {_userList = _asyncToGenerator( /*#__PURE__*/_regenerator.d
 /***/ }),
 
 /***/ 22:
+<<<<<<< HEAD
+/*!******************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/request.js ***!
+  \******************************************************************/
+=======
 /*!*****************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/request.js ***!
   \*****************************************************************/
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8814,6 +8953,8 @@ function request(url, options) {
 
 
   });
+<<<<<<< HEAD
+=======
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
@@ -8839,8 +8980,37 @@ try {
 } catch (e) {
 	// This works if the window reference is available
 	if (typeof window === "object") g = window;
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+<<<<<<< HEAD
+/***/ }),
+
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
 }
 
+=======
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 // g can still be undefined, but nothing to do about it...
 // We return undefined, instead of nothing here, so it's
 // easier to handle this case. if(!global) { ...}
@@ -8851,9 +9021,15 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
+<<<<<<< HEAD
+/*!**************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/pages.json ***!
+  \**************************************************************/
+=======
 /*!*************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/pages.json ***!
   \*************************************************************/
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8861,10 +9037,21 @@ module.exports = g;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 92:
+=======
+<<<<<<< HEAD
+/***/ 97:
+/*!*********************************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/components/uni-icons/icons.js ***!
+  \*********************************************************************************/
+=======
+/***/ 93:
+>>>>>>> 994cb1dc02bb5c0c552986a612ff9480ccab8241
 /*!********************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/components/uni-icons/icons.js ***!
   \********************************************************************************/
+>>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -55,7 +55,7 @@
 				 merchantList:[],
 				 isMenuFix: this.isMenuFix,
 				 menuTop:0,
-				 active: 1
+				 active: 0
 				
 			}
 		},
@@ -76,10 +76,10 @@
 			},
 			// 根据指定字段给数组进行排序
 			sortMerList(filed,bool){
-				this.merchantList = this.merchantList.sort((x,y)=>{
+				this.merchantList.sort((x,y)=>{
 					// 升序
-					let a = parseInt(x[filed]);
-					let b = parseInt(y[filed]);
+					let a = parseFloat(x[filed]);
+					let b = parseFloat(y[filed]);
 					if(bool){
 						if(a > b){
 							return 1;
@@ -100,6 +100,10 @@
 			changeActive(event){
 				this.active = event.detail.index;
 				switch(this.active){
+					case 0:
+						//距离最近排序 
+						this.sortMerList("m_id",false);
+						break;
 					case 1:
 						//距离最近排序 
 						this.sortMerList("distance",true);
@@ -121,9 +125,11 @@
 				}
 				
 				let res = await merchantList(params);
+				
 				this.merchantList = res.merchantList;
+				console.log(this.merchantList);
 				// 默认第一个加载对距离最近排序
-				this.sortMerList("distance",true);
+				this.sortMerList("m_id",false);
 			}
 		},
 		// onPageScroll(e){

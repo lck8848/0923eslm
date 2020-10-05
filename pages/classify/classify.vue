@@ -1,11 +1,13 @@
 <template>
 	<view class="classify-container">
 		<merchant :fId="classify" :isMenuFix="isMenuFix"></merchant>
+		<test></test>
 	</view>
 </template>
 
 <script>
 	import merchant from '@/components/merchant/merchant.vue';
+	import test from '@/components/test/test.vue';
 	export default {
 		data() {
 			return {
@@ -14,7 +16,8 @@
 			};
 		},
 		components:{
-			merchant
+			merchant,
+			test
 		},
 		onLoad(e){
 			this.classify = e.classify;
