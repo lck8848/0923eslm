@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "merchant": "/components/merchant/merchant",
+    "test": "/components/test/test"
+  }
+}
