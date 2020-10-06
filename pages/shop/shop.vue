@@ -716,7 +716,7 @@ export default {
 														.foodcommon-rateGhost {
 															position: absolute;
 															left: -20rpx;
-															top: -14rpx;
+															top: -10rpx;
 															transform: scale(0.5);
 															// transform-origin: 0 0;
 															// display: flex;
@@ -732,7 +732,7 @@ export default {
 											}
 											.salesInfo-price {
 												position: absolute;
-												bottom: 26rpx;
+												bottom: 14rpx;
 												color: rgb(255, 83, 57);
 												font-size: 0.4rem;
 												line-height: 4.266667vw;
@@ -754,7 +754,7 @@ export default {
 											.fooddetails-button {
 												position: absolute;
 												right: 4vw;
-												bottom: 18rpx;
+												bottom: 10rpx;
 												.cartbutton-minPurchase {
 													font-size: 20rpx;
 													color: #666;

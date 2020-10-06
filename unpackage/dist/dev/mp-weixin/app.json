@@ -1,5 +1,8 @@
 {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 994cb1dc02bb5c0c552986a612ff9480ccab8241
     "pages": [
         "pages/index/index",
         "pages/find/find",
@@ -62,6 +65,9 @@
         "van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
         "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
     },
+<<<<<<< HEAD
+    "sitemapLocation": "sitemap20.json"
+=======
     "sitemapLocation": "sitemap2.json"
 =======
   "pages": [
@@ -128,4 +134,5 @@
     "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
   }
 >>>>>>> 638d15e80327017d3bb80d26252ed2b38f6e86de
+>>>>>>> 994cb1dc02bb5c0c552986a612ff9480ccab8241
 }

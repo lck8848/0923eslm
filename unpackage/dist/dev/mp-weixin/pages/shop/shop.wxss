@@ -474,7 +474,7 @@
 .container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity .mini-tag .foodcommon-rateGhost.data-v-71bf3ec6 {
   position: absolute;
   left: -20rpx;
-  top: -14rpx;
+  top: -10rpx;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
   font-size: 40rpx;
@@ -484,7 +484,7 @@
 }
 .container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price.data-v-71bf3ec6 {
   position: absolute;
-  bottom: 26rpx;
+  bottom: 14rpx;
   color: #ff5339;
   font-size: 0.4rem;
   line-height: 4.266667vw;
@@ -510,7 +510,7 @@
 .container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button.data-v-71bf3ec6 {
   position: absolute;
   right: 4vw;
-  bottom: 18rpx;
+  bottom: 10rpx;
 }
 .container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-minPurchase.data-v-71bf3ec6 {
   font-size: 20rpx;
