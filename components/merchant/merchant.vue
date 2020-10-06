@@ -165,7 +165,7 @@
 <style lang="scss" scoped>
 	#menu {
 		position: fixed;
-		top: 44px;
+		top: 82px;
 		left: 0;
 		width: 100%;
 		background-color: #fff;
