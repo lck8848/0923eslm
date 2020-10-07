@@ -4,7 +4,7 @@
 			<view class="nologin">
 				<image class="img" src="/static/images/home/elm.png"></image>
 				<view class="title">登录后查看外卖订单</view>
-				<button type="primary" size="small" class="btn">立即登录</button>
+				<navigator url="/pages/login/login" hover-class="none"><button type="primary" size="small" class="btn">立即登录</button></navigator>
 			</view>
 		</view>
 	</view>

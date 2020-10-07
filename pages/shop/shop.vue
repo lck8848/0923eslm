@@ -46,7 +46,7 @@
 					<van-tab title="商家"></van-tab>
 				</van-tabs>
 			</view>
-			<view class="data0">
+			<view v-if="active == 0" class="data0">
 				<image src="/static/images/shop/bybt.png" class="bybt"></image>
 				<view class="recommend">
 					<p class="rec-p">店长推荐</p>
@@ -175,15 +175,14 @@
 											</view>
 										</view>
 									</dd>
-									
-									
 								</dl>
-								
 							</view>
 						</view>
 					</van-sidebar>
 				</view>
 			</view>
+			<view v-if="active == 1" class="data1">评价</view>
+			<view v-if="active == 2" class="data2">商家</view>
 		</view>
 	</view>
 </template>
@@ -314,8 +313,7 @@ export default {
 		};
 	},
 	created() {},
-	mounted() {
-	},
+	mounted() {},
 	methods: {
 		changeActive(event) {
 			console.log(event.detail.index);
@@ -602,7 +600,7 @@ export default {
 					.menuview-menuList {
 						position: absolute;
 						width: 576rpx;
-						height: 100%;
+						height: 100vw;
 						top: 0rpx;
 						left: 170rpx;
 						.scroller {

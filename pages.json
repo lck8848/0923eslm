@@ -1,42 +1,50 @@
 {
 	"pages": [{
-		"path": "pages/index/index",
-		"style": {
-			"navigationBarTitleText": "饿死了么"
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "饿死了么"
+			}
+		}, {
+			"path": "pages/find/find",
+			"style": {
+				"navigationBarTitleText": "发现"
+			}
+		}, {
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "订单"
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		}, {
+			"path": "pages/shop/shop",
+			"style": {
+				"navigationBarTitleText": "商品详情"
+			}
 		}
-	}, {
-		"path": "pages/find/find",
-		"style": {
-			"navigationBarTitleText": "发现"
+
+		, {
+			"path": "pages/classify/classify",
+			"style": {
+				"navigationBarTitleText": "商家分类"
+			}
 		}
-	}, {
-		"path": "pages/order/order",
-		"style": {
-			"navigationBarTitleText": "订单"
+
+		, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
 		}
-	}, {
-		"path": "pages/user/user",
-		"style": {
-			"navigationBarTitleText": "我的"
-		}
-	}, {
-		"path": "pages/login/login",
-		"style": {
-			"navigationBarTitleText": "登录"
-		}
-	}, {
-		"path": "pages/shop/shop",
-		"style": {
-			"navigationBarTitleText": "商品详情"
-		}
-	}    
-        
-        ,{
-            "path" : "pages/classify/classify",
-            "style" : {}
-        }
-        
-    ],
+	],
 	"tabBar": {
 		"color": "#7A7E83",
 		"selectedColor": "#007AFF",
@@ -81,7 +89,7 @@
 			"van-tab": "/wxcomponents/vant/dist/tab/index",
 			"van-tabs": "/wxcomponents/vant/dist/tabs/index",
 			"van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
-			"van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index" 
+			"van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
 		}
 	}
 }
