@@ -311,12 +311,17 @@ var _shopApi = __webpack_require__(/*! @/api/shopApi.js */ 63);function _interop
     // 获取当前商家的所有分类
     this.getClassifyList();
     this.getHotFoodList();
+    console.log("123456", this.m_item);
+  },
+  mounted: function mounted() {
+    var temp_img = document.querySelector(".container .app-dp .index .img");
+    console.log("temp_img", temp_img);
+    temp_img.style.backgroundImage = "url(".concat(this.m_item.adv_img, ")");
   },
   onLoad: function onLoad(e) {
     // 获取点击商家的信息
     this.m_item = JSON.parse(e.item);
-  },
-  mounted: function mounted() {} };exports.default = _default;
+  } };exports.default = _default;
 
 /***/ }),
 

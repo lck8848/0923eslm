@@ -2,18 +2,18 @@
 	<view class="container">
 		<view class="app-dp">
 			<view class="index"><view class="img"></view></view>
-			<image src="/static/images/shop/header.png" mode="" class="header-img"></image>
+			<image :src="m_item.m_img" mode="" class="header-img"></image>
 			<view class="info">
-				<view class="title"><text class="tt">港茶奶茶店·小吃·手抓饼(福安雅园店)</text></view>
+				<view class="title"><text class="tt">{{m_item.m_name}}</text></view>
 				<view class="count">
-					<text class="p">评价4.5</text>
-					<text class="y">月售1371单</text>
-					<text class="f">蜂鸟快送约40分钟</text>
+					<text class="p">评价{{m_item.grade}}</text>
+					<text class="y">月售{{m_item.sales_number}}单</text>
+					<text class="f">蜂鸟快送约{{m_item.time}}分钟</text>
 				</view>
 				<view class="discounts">
 					<view class="item color-y">
 						<p class="index-dis">
-							<text class="price">¥7</text>
+							<text class="price">¥{{m_item.distance}}</text>
 							<text class="condition">
 								<image src="/static/images/shop/king.png"></image>
 								无门槛
@@ -37,7 +37,7 @@
 					</view>
 					<view class="right">8个优惠</view>
 				</view>
-				<p class="tmryy">公告：港茶奶茶店新店入驻，期待您们的大驾光临哦！</p>
+				<p class="tmryy">{{m_item.signboard}}</p>
 			</view>
 			<view class="foods">
 				<van-tabs :active="active" @click="changeActive" color="#2395ff">
@@ -179,12 +179,17 @@ export default {
 		// 获取当前商家的所有分类
 		this.getClassifyList();
 		this.getHotFoodList();
+		console.log("123456",this.m_item)
+	},
+	mounted(){
+		let temp_img = document.querySelector(".container .app-dp .index .img");
+		console.log("temp_img",temp_img)
+		temp_img.style.backgroundImage =  `url(${this.m_item.adv_img})`;
 	},
 	onLoad(e){
 		// 获取点击商家的信息
 		this.m_item = JSON.parse(e.item);
 	},
-	mounted() {},
 };
 </script>
 
@@ -217,21 +222,24 @@ export default {
 			margin-top: 60rpx;
 			.title {
 				position: relative;
-				margin: 0 auto;
-				width: 500rpx;
 				font-size: 41rpx;
 				font-weight: 700;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				letter-spacing: -4rpx;
+				text-align: center;
+				.tt{
+					
+					margin: 0 auto;
+				}
 				.tt:after {
 					content: '';
 					border-style: solid;
 					border-width: 1.466667vw 0 1.466667vw 1.733333vw;
 					border-color: transparent transparent transparent rgba(0, 0, 0, 0.67);
+					transform: translateX(10rpx);
 					position: absolute;
-					right: 0vw;
 					bottom: 14rpx;
 				}
 			}
@@ -268,7 +276,7 @@ export default {
 						align-items: center;
 						width: 203rpx;
 						height: 38rpx;
-						font-size: 32rpx;
+						font-size: 24rpx;
 						.price {
 							font-weight: 500;
 							padding-left: 10rpx;
