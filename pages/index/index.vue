@@ -4,7 +4,9 @@
 		<view class="home-container">
 			<!-- 搜索 -->
 			
-			<van-search value="" class="search" background="#008EFF" placeholder="搜索饿了么商家 , 商品名称" />
+			<navigator url="/pages/search/search" hover-class="none">
+				<van-search value="" class="search" background="#008EFF" placeholder="搜索饿了么商家 , 商品名称" />
+			</navigator>
 			<view class="empty">
 				
 			</view>
