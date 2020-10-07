@@ -258,6 +258,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+
 var _shopApi = __webpack_require__(/*! @/api/shopApi.js */ 63);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   data: function data() {
@@ -284,17 +285,17 @@ var _shopApi = __webpack_require__(/*! @/api/shopApi.js */ 63);function _interop
                 });
                 // 并发执行
                 _context.next = 8;return Promise.all(proArr);case 8:result = _context.sent;
-                result.map(function (x, key) {
+                console.log(result.length);
+                result.forEach(function (x, key) {
+                  console.log('top', _this.foodsData[key]);
+                  // console.log(123,this.foodsData[key]);
                   _this.foodsData[key].food = x.classifyList;
+                  console.log('footer', _this.foodsData[key]);
+                  // console.log(555);
                 });
-                console.log("123", _this.foodsData);case 11:case "end":return _context.stop();}}}, _callee);}))();
+                console.log("123", _this.foodsData);case 12:case "end":return _context.stop();}}}, _callee);}))();
     },
-    // // 获取指定分类的所有商品
-    // async getFoodList(id){
-    // 	// 分类id
-    // 	let res = await foodList(id);
-    // 	console.log(res);
-    // },
+
     // 获取店长推荐的商品
     getHotFoodList: function getHotFoodList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   (0, _shopApi.hotFoodList)(_this2.m_item.m_id));case 2:res = _context2.sent;

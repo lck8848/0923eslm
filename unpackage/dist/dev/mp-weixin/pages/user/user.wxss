@@ -44,8 +44,7 @@
 .user-container .top .img.data-v-80842834 {
   width: 120rpx;
   height: 120rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
 }
 .user-container .top .img .img.data-v-80842834 {
   width: 100%;
