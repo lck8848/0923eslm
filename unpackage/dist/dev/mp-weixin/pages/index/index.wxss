@@ -44,8 +44,7 @@
           justify-content: center;
   width: 80rpx;
   height: 80rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   border: 1px solid #ccc;
   background-color: #fff;
   z-index: 10;

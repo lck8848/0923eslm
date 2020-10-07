@@ -904,7 +904,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1936,9 +1936,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 108:
-/*!********************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/练习/0923eslm/components/uni-icons/icons.js ***!
-  \********************************************************************************/
+/*!*********************************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/components/uni-icons/icons.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7660,7 +7660,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7681,14 +7681,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7773,7 +7773,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8913,9 +8913,9 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 21:
-/*!*****************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/homeApi.js ***!
-  \*****************************************************************/
+/*!******************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/homeApi.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8932,9 +8932,9 @@ function _userList() {_userList = _asyncToGenerator( /*#__PURE__*/_regenerator.d
 /***/ }),
 
 /***/ 22:
-/*!*****************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/request.js ***!
-  \*****************************************************************/
+/*!******************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/request.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8993,9 +8993,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
-/*!*************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/练习/0923eslm/pages.json ***!
-  \*************************************************************/
+/*!**************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/pages.json ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9003,10 +9003,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 71:
-/*!*****************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/shopApi.js ***!
-  \*****************************************************************/
+/***/ 63:
+/*!******************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/shopApi.js ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9022,7 +9022,7 @@ function _classifyList() {_classifyList = _asyncToGenerator( /*#__PURE__*/_regen
 
 
 // 热门推荐
-function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 3:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 4:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
               (0, _request.default)("/hotFoodList?id=" + id, {}));case 2:return _context3.abrupt("return", _context3.sent);case 3:case "end":return _context3.stop();}}}, _callee3);}));return _hotFoodList.apply(this, arguments);}
 
 /***/ })

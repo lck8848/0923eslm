@@ -183,6 +183,7 @@
 			</view>
 			<view v-if="active == 1" class="data1">评价</view>
 			<view v-if="active == 2" class="data2">商家</view>
+			
 		</view>
 	</view>
 </template>
@@ -213,17 +214,17 @@ export default {
 			})
 			// 并发执行
 			let result = await Promise.all(proArr);
-			result.map((x,key)=>{
+			console.log(result.length);
+			result.forEach((x,key)=>{
+				console.log('top',this.foodsData[key]);
+				// console.log(123,this.foodsData[key]);
 				this.foodsData[key].food = x.classifyList;
+				console.log('footer',this.foodsData[key]);
+				// console.log(555);
 			})
-			console.log(this.foodsData);
+			// console.log(this.foodsData);
 		},
-		// // 获取指定分类的所有商品
-		// async getFoodList(id){
-		// 	// 分类id
-		// 	let res = await foodList(id);
-		// 	console.log(res);
-		// },
+		
 		// 获取店长推荐的商品
 		async getHotFoodList(){
 			let res = await hotFoodList(this.m_item.m_id);
