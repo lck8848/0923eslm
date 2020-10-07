@@ -62,5 +62,9 @@
         "van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
         "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
     },
+<<<<<<< HEAD
     "sitemapLocation": "sitemap78.json"
+=======
+    "sitemapLocation": "sitemap75.json"
+>>>>>>> e3f70d7bca68d775e894cd0062a2c370c9888ff9
 }

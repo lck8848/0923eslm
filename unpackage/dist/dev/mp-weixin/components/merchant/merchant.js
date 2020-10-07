@@ -70,9 +70,14 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
   },
   methods: {
     getShopPage: function getShopPage(item) {
+<<<<<<< HEAD
       var itemStr = JSON.stringify(item);
       uni.navigateTo({
         url: "/pages/shop/shop?item=".concat(itemStr) });
+=======
+      uni.navigateTo({
+        url: "/pages/shop/shop?item=".concat(item) });
+>>>>>>> e3f70d7bca68d775e894cd0062a2c370c9888ff9
 
     },
     getTop: function getTop() {

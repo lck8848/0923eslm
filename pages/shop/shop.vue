@@ -52,13 +52,13 @@
 					<p class="rec-p">店长推荐</p>
 					<view class="rec-a">
 						<view class="rec-v">
-							<view class="item">
-								<image src="/static/images/shop/item1.png" mode=""></image>
+							<view class="item" v-for="item in goodFoods" :key="item.id">
+								<image :src="item.fImg"></image>
 								<view class="info">
-									<p class="title">特价大杯金桔柠檬茶</p>
-									<p class="desc">月售164 好评率100%</p>
+									<p class="title">{{item.title}}</p>
+									<p class="desc">月售{{item.sell}} 好评率{{item.good}}%</p>
 									<view class="buy">
-										<p class="price">¥7.8</p>
+										<p class="price">¥{{item.sell_price}}</p>
 										<image src="/static/images/shop/add.png" mode=""></image>
 									</view>
 								</view>
@@ -75,94 +75,32 @@
 
 						<view class="menuview-menuList">
 							<view class="scroller">
-								<dl class="item">
+								<dl class="item" v-for="(item,index) in foodsData" :key="item.id">
 									<dt class="role">
 										<view class="category-title">
-											<strong class="category-name">优惠</strong>
-											<text class="category-desc">美味优惠，抢购放宽，最多可抢5份</text>
+											<strong class="category-name">{{item.classify}}</strong>
+											<text class="category-desc">{{item.desc}}</text>
 										</view>
 									</dt>
-									<dd class="f_data">
+									<dd class="f_data" v-for="(f,i) in item.food" :key="f.id">
 										<view class="fooddetails-root">
-											<text class="fooddetails-logo"><image src="/static/images/shop/item1.png"></image></text>
+											<text class="fooddetails-logo"><image :src="f.fImg"></image></text>
 											<view class="fooddetails-info">
-												<p class="fooddetails-name"><text class="fooddetails-nameText">大杯原味珍珠奶茶</text></p>
-												<p class="fooddetails-desc">琥珀珍珠，弹牙香甜！主要原料：其他</p>
+												<p class="fooddetails-name"><text class="fooddetails-nameText">{{fj.title}}</text></p>
+												<p class="fooddetails-desc">{{f.desc}}</p>
 												<p class="fooddetails-sales">
-													<text>月售300份</text>
-													<text>好评率100%</text>
+													<text>月售{{f.sell}}份</text>
+													<text>好评率{{sell_price}}%</text>
 												</p>
 												<view class="fooddetails-activityRow">
 													<text class="foodcommon-activity">
-														<text class="mini-tag"><text class="foodcommon-rateGhost">0.3折</text></text>
-														<text class="mini-tag"><text class="foodcommon-rateGhost">每单限1份优惠</text></text>
+														<text class="mini-tag" v-if="f.discount.length > 0"><text class="foodcommon-rateGhost">{{f.discount}}折</text></text>
+														<text class="mini-tag" v-if="f.count.length > 0"><text class="foodcommon-rateGhost">每单限{{f.count}}份优惠</text></text>
 													</text>
 												</view>
 												<text class="salesInfo-price">
-													<text>¥0.5</text>
-													<del>¥16</del>
-												</text>
-												<view class="fooddetails-button">
-													<text>
-														<text class="cartbutton-minPurchase"></text>
-														<text class="cartbutton-entitybutton">
-															<a href="javascript;"><image src="/static/images/shop/add.png"></image></a>
-														</text>
-													</text>
-												</view>
-											</view>
-										</view>
-									</dd>
-									<dd class="f_data">
-										<view class="fooddetails-root">
-											<view class="fooddetails-logo"><image src="/static/images/shop/item1.png"></image></view>
-											<view class="fooddetails-info">
-												<p class="fooddetails-name"><text class="fooddetails-nameText">大杯原味珍珠奶茶</text></p>
-												<p class="fooddetails-desc">琥珀珍珠，弹牙香甜！主要原料：其他</p>
-												<p class="fooddetails-sales">
-													<text>月售300份</text>
-													<text>好评率100%</text>
-												</p>
-												<view class="fooddetails-activityRow">
-													<text class="foodcommon-activity">
-														<text class="mini-tag"><text class="foodcommon-rateGhost">0.3折</text></text>
-														<text class="mini-tag"><text class="foodcommon-rateGhost">每单限1份优惠</text></text>
-													</text>
-												</view>
-												<text class="salesInfo-price">
-													<text>¥0.5</text>
-													<del>¥16</del>
-												</text>
-												<view class="fooddetails-button">
-													<text>
-														<text class="cartbutton-minPurchase"></text>
-														<text class="cartbutton-entitybutton">
-															<a href="javascript;"><image src="/static/images/shop/add.png"></image></a>
-														</text>
-													</text>
-												</view>
-											</view>
-										</view>
-									</dd>
-									<dd class="f_data">
-										<view class="fooddetails-root">
-											<text class="fooddetails-logo"><image src="/static/images/shop/item1.png"></image></text>
-											<view class="fooddetails-info">
-												<p class="fooddetails-name"><text class="fooddetails-nameText">大杯原味珍珠奶茶</text></p>
-												<p class="fooddetails-desc">琥珀珍珠，弹牙香甜！主要原料：其他</p>
-												<p class="fooddetails-sales">
-													<text>月售300份</text>
-													<text>好评率100%</text>
-												</p>
-												<view class="fooddetails-activityRow">
-													<text class="foodcommon-activity">
-														<text class="mini-tag"><text class="foodcommon-rateGhost">0.3折</text></text>
-														<text class="mini-tag"><text class="foodcommon-rateGhost">每单限1份优惠</text></text>
-													</text>
-												</view>
-												<text class="salesInfo-price">
-													<text>¥0.5</text>
-													<del>¥16</del>
+													<text>¥{{f.sell_price}}</text>
+													<del v-if="f.raw_price">¥{{f.raw_price}}</del>
 												</text>
 												<view class="fooddetails-button">
 													<text>
@@ -197,7 +135,8 @@ export default {
 			active: 0,
 			icon: 'none',
 			activeKey: 0,
-			foodsData: []
+			foodsData: [],
+			goodFoods:[]
 		};
 	},
 	methods: {
@@ -222,13 +161,14 @@ export default {
 				console.log('footer',this.foodsData[key]);
 				// console.log(555);
 			})
-			// console.log(this.foodsData);
+			console.log("123",this.foodsData);
 		},
 		
 		// 获取店长推荐的商品
 		async getHotFoodList(){
 			let res = await hotFoodList(this.m_item.m_id);
-			console.log(res);
+			this.goodFoods = res.hotFoodList;
+			console.log(res.hotFoodList);
 		},
 		changeActive(event) {
 			console.log(event.detail.index);
@@ -238,6 +178,7 @@ export default {
 	created(){
 		// 获取当前商家的所有分类
 		this.getClassifyList();
+		this.getHotFoodList();
 	},
 	onLoad(e){
 		// 获取点击商家的信息
