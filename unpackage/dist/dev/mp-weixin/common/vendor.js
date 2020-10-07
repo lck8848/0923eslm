@@ -9003,7 +9003,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 71:
+/***/ 63:
 /*!*****************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/shopApi.js ***!
   \*****************************************************************/
@@ -9022,7 +9022,7 @@ function _classifyList() {_classifyList = _asyncToGenerator( /*#__PURE__*/_regen
 
 
 // 热门推荐
-function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 3:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 4:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
               (0, _request.default)("/hotFoodList?id=" + id, {}));case 2:return _context3.abrupt("return", _context3.sent);case 3:case "end":return _context3.stop();}}}, _callee3);}));return _hotFoodList.apply(this, arguments);}
 
 /***/ })
