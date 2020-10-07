@@ -5,7 +5,7 @@ export async function classifyList(id){
 }
 // 获取指定分类的所有商品
 export async function foodList(id){
-	return await request("/foodList?id="+id,{});
+	return await request("/foodList?id="+id,{});qzasw
 }
 
 // 热门推荐

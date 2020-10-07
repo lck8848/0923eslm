@@ -188,142 +188,61 @@
 </template>
 
 <script>
+	import { classifyList,foodList,hotFoodList } from '@/api/shopApi.js';
 export default {
 	data() {
 		return {
+			m_item: {},
 			active: 0,
 			icon: 'none',
 			activeKey: 0,
-			foodsData: [
-				{
-					id: '1',
-					classify: '优惠',
-					desc: '美味优惠，抢购放宽，最多可抢5份',
-					img: '/static/images/shop/classify1.png',
-					food: [
-						{
-							id: '1',
-							fImg: '/static/images/shop/item1.png',
-							title: '大杯原味珍珠奶茶',
-							desc: '琥珀珍珠，弹牙香甜！主要原料：其他',
-							sell: '300',
-							good: '100',
-							temp: {
-								discount: '0.3',
-								count: '1'
-							},
-							sell_price: '0.5',
-							raw_price: '16',
-							start: '2'
-						},
-						{
-							id: '2',
-							fImg: '/static/images/shop/item1.png',
-							title: '大杯原味珍珠奶茶2',
-							desc: '琥珀珍珠，弹牙香甜！主要原料：其他',
-							sell: '300',
-							good: '100',
-							temp: {
-								discount: '0.3',
-								count: '1'
-							},
-							sell_price: '0.5',
-							raw_price: '16',
-							start: '2'
-						}
-					]
-				},
-				{
-					id: '2',
-					classify: '限时特价',
-					desc: '',
-					img: '/static/images/shop/classify1.png',
-					food: [
-						{
-							id: '3',
-							fImg: '/static/images/shop/item2.png',
-							title: '大杯金桔柠檬椰椰茶',
-							desc: '金桔柠檬+椰果主要原料：柠檬,金桔',
-							sell: '18',
-							good: '0.0',
-							temp: {
-								discount: '0.1',
-								count: '1'
-							},
-							sell_price: '0.1',
-							raw_price: '18',
-							start: '2'
-						},
-						{
-							id: '4',
-							fImg: '/static/images/shop/item2.png',
-							title: '大杯金桔柠檬椰椰茶',
-							desc: '金桔柠檬+椰果主要原料：柠檬,金桔',
-							sell: '18',
-							good: '0.0',
-							temp: {
-								discount: '0.1',
-								count: '1'
-							},
-							sell_price: '0.1',
-							raw_price: '18',
-							start: '2'
-						}
-					]
-				},
-				{
-					id: '3',
-					classify: '限时特价',
-					desc: '',
-					img: '',
-					food: [
-						{
-							id: '5',
-							fImg: '/static/images/shop/item2.png',
-							title: '大杯金桔柠檬椰椰茶',
-							desc: '金桔柠檬+椰果主要原料：柠檬,金桔',
-							sell: '18',
-							good: '0.0',
-							temp: {
-								discount: '0.1',
-								count: '1'
-							},
-							sell_price: '0.1',
-							raw_price: '18',
-							start: '2'
-						},
-						{
-							id: '6',
-							fImg: '/static/images/shop/item2.png',
-							title: '大杯金桔柠檬椰椰茶',
-							desc: '金桔柠檬+椰果主要原料：柠檬,金桔',
-							sell: '18',
-							good: '0.0',
-							temp: {
-								discount: '0.1',
-								count: '1'
-							},
-							sell_price: '0.1',
-							raw_price: '18',
-							start: '2'
-						}
-					]
-				}
-			]
+			foodsData: []
 		};
 	},
-	created() {},
-	onLoad(e){
-		console.log(123)
-		console.log(JSON.parse(e.item));
-	},
-	mounted() {},
 	methods: {
+		// 获取指定商家的所有分类
+		async getClassifyList(){
+			let res = await classifyList(this.m_item.m_id);
+			// 
+			this.foodsData = res.classifyList;
+			// return;
+			// 保存所有的Promise对象
+			let proArr = [];
+			this.foodsData.map( item =>{
+				proArr.push(foodList(item.c_id));
+			})
+			// 并发执行
+			let result = await Promise.all(proArr);
+			result.map((x,key)=>{
+				this.foodsData[key].food = x.classifyList;
+			})
+			console.log(this.foodsData);
+		},
+		// // 获取指定分类的所有商品
+		// async getFoodList(id){
+		// 	// 分类id
+		// 	let res = await foodList(id);
+		// 	console.log(res);
+		// },
+		// 获取店长推荐的商品
+		async getHotFoodList(){
+			let res = await hotFoodList(this.m_item.m_id);
+			console.log(res);
+		},
 		changeActive(event) {
 			console.log(event.detail.index);
 			this.active = event.detail.index;
 		}
-	}
+	},
+	created(){
+		// 获取当前商家的所有分类
+		this.getClassifyList();
+	},
+	onLoad(e){
+		// 获取点击商家的信息
+		this.m_item = JSON.parse(e.item);
+	},
+	mounted() {},
 };
 </script>
 
