@@ -40,8 +40,8 @@
 			}
 		},
 		async created(){
-			let res = await foodList(1);
-			console.log(res)
+			// let res = await foodList(1);
+			// console.log(res)
 		}
 	}
 </script>

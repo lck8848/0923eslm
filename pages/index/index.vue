@@ -157,8 +157,9 @@
 		methods: {
 			// 点击跳转详情页
 			getShopPage(item){
+				let itemStr = JSON.stringify(item);
 				uni.navigateTo({
-				    url: `/pages/shop/shop?item=${item}`
+				    url: `/pages/shop/shop?item=${itemStr}`
 				});
 			},
 			getTop(){

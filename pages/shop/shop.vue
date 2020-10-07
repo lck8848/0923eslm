@@ -313,6 +313,10 @@ export default {
 		};
 	},
 	created() {},
+	onLoad(e){
+		console.log(123)
+		console.log(JSON.parse(e.item));
+	},
 	mounted() {},
 	methods: {
 		changeActive(event) {
