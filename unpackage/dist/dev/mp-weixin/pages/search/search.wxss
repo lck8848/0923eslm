@@ -58,7 +58,6 @@
   height: 57rpx;
 }
 .container .search-container .btn.data-v-4cedc0c6 {
-  width: 64rpx;
   height: 57rpx;
   line-height: 57rpx;
   font-weight: 700;

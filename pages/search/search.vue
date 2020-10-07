@@ -91,7 +91,7 @@ export default {
 			height: 57rpx;
 		}
 		.btn {
-			width: 64rpx;
+			// width: 64rpx;
 			height: 57rpx;
 			line-height: 57rpx;
 			font-weight: 700;
