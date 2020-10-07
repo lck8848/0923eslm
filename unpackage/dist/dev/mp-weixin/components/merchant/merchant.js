@@ -69,9 +69,9 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
 
   },
   methods: {
-    getShopPage: function getShopPage(id) {
+    getShopPage: function getShopPage(item) {
       uni.navigateTo({
-        url: "/pages/shop/shop?m_id=".concat(id) });
+        url: "/pages/shop/shop?item=".concat(item) });
 
     },
     getTop: function getTop() {

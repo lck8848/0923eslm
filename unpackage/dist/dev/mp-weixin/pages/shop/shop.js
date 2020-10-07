@@ -445,6 +445,10 @@ var _default =
 
   },
   created: function created() {},
+  onLoad: function onLoad(e) {
+    console.log(123);
+    console.log(JSON.parse(e.item));
+  },
   mounted: function mounted() {},
   methods: {
     changeActive: function changeActive(event) {

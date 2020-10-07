@@ -318,9 +318,10 @@ var _homeApi = __webpack_require__(/*! @/api/homeApi.js */ 21);function _interop
   },
   methods: {
     // 点击跳转详情页
-    getShopPage: function getShopPage(id) {
+    getShopPage: function getShopPage(item) {
+      var itemStr = JSON.stringify(item);
       uni.navigateTo({
-        url: "/pages/shop/shop?m_id=".concat(id) });
+        url: "/pages/shop/shop?item=".concat(itemStr) });
 
     },
     getTop: function getTop() {
