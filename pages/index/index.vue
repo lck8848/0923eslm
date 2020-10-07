@@ -57,7 +57,7 @@
 			</view>
 			
 			<view class="merchant-container">
-				<view class="item" v-for="item in merchantList" :key="item.id">
+				<view class="item" v-for="item in merchantList" :key="item.m_id" @click="getShopPage(item.m_id)">
 					<view class="left">
 						<image class="food_img" :src="item.m_img" mode=""></image>
 					</view>
@@ -153,6 +153,12 @@
 			}
 		},
 		methods: {
+			// 点击跳转详情页
+			getShopPage(id){
+				uni.navigateTo({
+				    url: `/pages/shop/shop?m_id=${id}`
+				});
+			},
 			getTop(){
 				uni.pageScrollTo({
 					scrollTop: 0,
@@ -228,6 +234,7 @@
 		onPageScroll(e){
 			// 滚到到一定高度显示
 			let currentHeigth = e.scrollTop;
+			
 			let scrollHeigth = 200;
 			if(currentHeigth > scrollHeigth){
 				this.isMenuFix = true;
@@ -237,11 +244,11 @@
 			
 		},
 		onReady(){
-			const query = uni.createSelectorQuery();
-			query.select('#menu').boundingClientRect(data => {
-				// 初始记录距离顶部的距离=
-				this.menuTop =  data.top
-			}).exec();
+			// const query = uni.createSelectorQuery();
+			// query.select('#menu').boundingClientRect(data => {
+			// 	// 初始记录距离顶部的距离=
+			// 	this.menuTop =  data.top
+			// }).exec();
 		},
 		components: {
 		},

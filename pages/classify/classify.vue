@@ -1,6 +1,6 @@
 <template>
 	<view class="classify-container">
-		<v-tabs v-model="current" :tabs="tabs" @change="changeTab" height="80rpx" fixed="true" bgColor="#008EFF" activeColor="#FFF" color="#fff"></v-tabs>
+		<v-tabs v-model="current" :tabs="tabs" @change="changeTab" height="80rpx" :fixed="true" bgColor="#008EFF" activeColor="#FFF" color="#fff"></v-tabs>
 		<merchant :fId="classify" :isMenuFix="isMenuFix"></merchant>
 	</view>
 </template>
@@ -8,6 +8,7 @@
 <script>
 	import merchant from '@/components/merchant/merchant.vue';
 	import tabs from '@/components/v-tabs/v-tabs.vue';
+	import { foodList } from '@/api/shopApi.js';
 	export default {
 		data() {
 			return {
@@ -37,6 +38,10 @@
 			}else {
 				this.isMenuFix = false;
 			}
+		},
+		async created(){
+			let res = await foodList(1);
+			console.log(res)
 		}
 	}
 </script>
