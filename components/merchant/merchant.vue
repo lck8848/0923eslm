@@ -60,8 +60,9 @@
 		},
 		methods: {
 			getShopPage(item){
+				let itemStr = JSON.stringify(item);
 				uni.navigateTo({
-				    url: `/pages/shop/shop?item=${item}`
+				    url: `/pages/shop/shop?item=${itemStr}`
 				});
 			},
 			getTop(){
