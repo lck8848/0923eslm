@@ -14,7 +14,7 @@
 			</view>
 			
 			<view class="merchant-container">
-				<view class="item" v-for="item in merchantList" :key="item.m_id" @click="getShopPage(item.m_id)">
+				<view class="item" v-for="item in merchantList" :key="item.m_id" @click="getShopPage(item)">
 					<view class="left">
 						<image class="food_img" :src="item.m_img" mode=""></image>
 					</view>
@@ -59,9 +59,9 @@
 			}
 		},
 		methods: {
-			getShopPage(id){
+			getShopPage(item){
 				uni.navigateTo({
-				    url: `/pages/shop/shop?m_id=${id}`
+				    url: `/pages/shop/shop?item=${item}`
 				});
 			},
 			getTop(){
