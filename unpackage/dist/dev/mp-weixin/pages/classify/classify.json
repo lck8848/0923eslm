@@ -2,6 +2,6 @@
   "navigationBarTitleText": "商家分类",
   "usingComponents": {
     "merchant": "/components/merchant/merchant",
-    "test": "/components/test/test"
+    "tabs": "/components/v-tabs/v-tabs"
   }
 }

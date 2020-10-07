@@ -193,13 +193,17 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
   data: function data() {
     return {
       merchantList: [],
-      isMenuFix: this.isMenuFix,
-      menuTop: 0,
+      isMenuFixs: this.isMenuFix,
       active: 0 };
 
 
   },
   methods: {
+    getShopPage: function getShopPage(id) {
+      uni.navigateTo({
+        url: "/pages/shop/shop?m_id=".concat(id) });
+
+    },
     getTop: function getTop() {
       uni.pageScrollTo({
         scrollTop: 0,
@@ -272,26 +276,9 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
                 _this.sortMerList("m_id", false);case 8:case "end":return _context.stop();}}}, _callee);}))();
     } },
 
-  // onPageScroll(e){
-  // 	// 滚到到一定高度显示
-  // 	console.log(1);
-  // 	return;
-  // 	let currentHeigth = e.scrollTop;
-  // 	console.log(currentHeigth);
-  // 	let scrollHeigth = 200;
-  // 	if(currentHeigth > scrollHeigth){
-  // 		this.isMenuFix = true;
-  // 	}else {
-  // 		this.isMenuFix = false;
-  // 	}
 
-  // },
-  onReady: function onReady() {var _this2 = this;
-    var query = uni.createSelectorQuery();
-    query.select('#menu').boundingClientRect(function (data) {
-      // 初始记录距离顶部的距离=
-      _this2.menuTop = data.top;
-    }).exec();
+  onReady: function onReady() {
+
   },
   components: {},
 

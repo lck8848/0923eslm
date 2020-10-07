@@ -242,60 +242,69 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
 var _homeApi = __webpack_require__(/*! @/api/homeApi.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
   data: function data() {
     return {
-      foods: [
-      {
-        f_id: '1',
-        mark: '美食',
-        img_path: '/static/images/home/menu1.webp' },
+      foods: [{
+        f_id: "1",
+        mark: "美食",
+        img_path: "/static/images/home/menu1.webp" },
 
       {
-        f_id: '2',
-        mark: '夜宵',
-        img_path: '/static/images/home/menu2.webp' },
+        f_id: "2",
+        mark: "夜宵",
+        img_path: "/static/images/home/menu2.webp" },
 
       {
-        f_id: '3',
-        mark: '跑腿代购',
-        img_path: '/static/images/home/menu3.webp' },
+        f_id: "3",
+        mark: "跑腿代购",
+        img_path: "/static/images/home/menu3.webp" },
 
       {
-        f_id: '4',
-        mark: '汉堡披萨',
-        img_path: '/static/images/home/menu4.webp' },
+        f_id: "4",
+        mark: "汉堡披萨",
+        img_path: "/static/images/home/menu4.webp" },
 
       {
-        f_id: '5',
-        mark: '甜品饮品',
-        img_path: '/static/images/home/menu5.webp' },
+        f_id: "5",
+        mark: "甜品饮品",
+        img_path: "/static/images/home/menu5.webp" },
 
       {
-        f_id: '6',
-        mark: '速食简餐',
-        img_path: '/static/images/home/menu6.webp' },
+        f_id: "6",
+        mark: "速食简餐",
+        img_path: "/static/images/home/menu6.webp" },
 
       {
-        f_id: '7',
-        mark: '地方小吃',
-        img_path: '/static/images/home/menu7.webp' },
+        f_id: "7",
+        mark: "地方小吃",
+        img_path: "/static/images/home/menu7.webp" },
 
       {
-        f_id: '8',
-        mark: '米粉面馆',
-        img_path: '/static/images/home/menu8.webp' },
+        f_id: "8",
+        mark: "米粉面馆",
+        img_path: "/static/images/home/menu8.webp" },
 
       {
-        f_id: '9',
-        mark: '包子粥店',
-        img_path: '/static/images/home/menu9.webp' },
+        f_id: "9",
+        mark: "包子粥店",
+        img_path: "/static/images/home/menu9.webp" },
 
       {
-        f_id: '10',
-        mark: '炸鸡炸串',
-        img_path: '/static/images/home/menu10.webp' }],
+        f_id: "10",
+        mark: "炸鸡炸串",
+        img_path: "/static/images/home/menu10.webp" }],
 
 
       active: 0,
@@ -303,8 +312,15 @@ var _homeApi = __webpack_require__(/*! @/api/homeApi.js */ 21);function _interop
       isMenuFix: false,
       menuTop: 0 };
 
+
   },
   methods: {
+    // 点击跳转详情页
+    getShopPage: function getShopPage(id) {
+      uni.navigateTo({
+        url: "/pages/shop/shop?m_id=".concat(id) });
+
+    },
     getTop: function getTop() {
       uni.pageScrollTo({
         scrollTop: 0,
@@ -320,11 +336,11 @@ var _homeApi = __webpack_require__(/*! @/api/homeApi.js */ 21);function _interop
     },
     // 根据距离显示
     getDistance: function getDistance(distance) {
-      return distance > 1 ? distance + 'km' : distance * 1000 + 'm';
+      return distance > 1 ? distance + "km" : distance * 1000 + "m";
     },
     // 根据配送费显示
     getDistribution: function getDistribution(distribution) {
-      return distribution <= 0 ? '免配送费' : '配送￥' + distribution;
+      return distribution <= 0 ? "免配送费" : "配送￥" + distribution;
     },
     // 根据指定字段给数组进行排序
     sortMerList: function sortMerList(filed, bool) {
@@ -346,22 +362,23 @@ var _homeApi = __webpack_require__(/*! @/api/homeApi.js */ 21);function _interop
             return -1;
           }
         }
+
       });
     },
     changeActive: function changeActive(event) {
       this.active = event.detail.index;
       switch (this.active) {
         case 0:
-          //距离最近排序
-          this.sortMerList('m_id', false);
+          //距离最近排序 
+          this.sortMerList("m_id", false);
           break;
         case 1:
-          //距离最近排序
-          this.sortMerList('distance', true);
+          //距离最近排序 
+          this.sortMerList("distance", true);
           break;
         case 2:
           // 销量最高排序
-          this.sortMerList('sales_number', false);
+          this.sortMerList("sales_number", false);
           console.log(this.merchantList);
           break;
         default:
@@ -373,30 +390,30 @@ var _homeApi = __webpack_require__(/*! @/api/homeApi.js */ 21);function _interop
                   (0, _homeApi.merchantList)({}));case 2:res = _context.sent;
                 _this.merchantList = res.merchantList;
                 // 默认第一个加载对新商家最近排序
-                _this.sortMerList('m_id', false);case 5:case "end":return _context.stop();}}}, _callee);}))();
+                _this.sortMerList("m_id", false);case 5:case "end":return _context.stop();}}}, _callee);}))();
     } },
 
   onPageScroll: function onPageScroll(e) {
     // 滚到到一定高度显示
     var currentHeigth = e.scrollTop;
+
     var scrollHeigth = 200;
     if (currentHeigth > scrollHeigth) {
       this.isMenuFix = true;
     } else {
       this.isMenuFix = false;
     }
+
   },
-  onReady: function onReady() {var _this2 = this;
-    var query = uni.createSelectorQuery();
-    query.
-    select('#menu').
-    boundingClientRect(function (data) {
-      // 初始记录距离顶部的距离=
-      _this2.menuTop = data.top;
-    }).
-    exec();
+  onReady: function onReady() {
+    // const query = uni.createSelectorQuery();
+    // query.select('#menu').boundingClientRect(data => {
+    // 	// 初始记录距离顶部的距离=
+    // 	this.menuTop =  data.top
+    // }).exec();
   },
   components: {},
+
   created: function created() {
     // 初始化加载，获取商家信息
     this.getMerchantList();

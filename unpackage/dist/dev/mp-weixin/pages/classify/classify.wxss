@@ -25,6 +25,6 @@
 /* 透明度 */
 /* 文章场景相关 */
 .classify-container {
-  height: 3000rpx;
+  height: 2000rpx;
 }
 

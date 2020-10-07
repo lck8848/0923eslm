@@ -95,9 +95,6 @@ __webpack_require__.r(__webpack_exports__);
 var components = {
   merchant: function() {
     return Promise.all(/*! import() | components/merchant/merchant */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/merchant/merchant")]).then(__webpack_require__.bind(null, /*! @/components/merchant/merchant.vue */ 88))
-  },
-  test: function() {
-    return __webpack_require__.e(/*! import() | components/test/test */ "components/test/test").then(__webpack_require__.bind(null, /*! @/components/test/test.vue */ 95))
   }
 }
 var render = function() {
@@ -137,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var merchant = function merchant() {Promise.all(/*! require.ensure | components/merchant/merchant */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/merchant/merchant")]).then((function () {return resolve(__webpack_require__(/*! @/components/merchant/merchant.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var test = function test() {__webpack_require__.e(/*! require.ensure | components/test/test */ "components/test/test").then((function () {return resolve(__webpack_require__(/*! @/components/test/test.vue */ 95));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));
 
 
 
@@ -147,16 +144,24 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+var _shopApi = __webpack_require__(/*! @/api/shopApi.js */ 111);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var merchant = function merchant() {Promise.all(/*! require.ensure | components/merchant/merchant */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/merchant/merchant")]).then((function () {return resolve(__webpack_require__(/*! @/components/merchant/merchant.vue */ 88));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tabs = function tabs() {__webpack_require__.e(/*! require.ensure | components/v-tabs/v-tabs */ "components/v-tabs/v-tabs").then((function () {return resolve(__webpack_require__(/*! @/components/v-tabs/v-tabs.vue */ 115));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {
       classify: '',
-      isMenuFix: false };
+      isMenuFix: false,
+      current: 0,
+      tabs: ['全部', '面食粥点', '简餐便当', '汉堡披萨', '香锅冒菜', '小吃炸串', '地方菜系', '', '', ''] };
 
   },
+  methods: {
+    changeTab: function changeTab(index) {
+      console.log('当前选中的项：' + index);
+    } },
+
   components: {
     merchant: merchant,
-    test: test },
+    tabs: tabs },
 
   onLoad: function onLoad(e) {
     this.classify = e.classify;
@@ -169,6 +174,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     } else {
       this.isMenuFix = false;
     }
+  },
+  created: function created() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                (0, _shopApi.foodList)(1));case 2:res = _context.sent;
+              console.log(res);case 4:case "end":return _context.stop();}}}, _callee);}))();
   } };exports.default = _default;
 
 /***/ }),
