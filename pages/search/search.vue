@@ -34,26 +34,54 @@ export default {
 	},
 	methods: {
 		find(e) {
-			console.log(this.search);
+			// #ifdef H5
 			let his = JSON.parse(localStorage.getItem('historyData')) || [];
 			!his.includes(this.search) && his.push(this.search) && localStorage.setItem('historyData', JSON.stringify(his));
 			this.historyData = his;
 			if (this.historyData.length > 0 && !this.isHistoryData) {
 				this.isHistoryData = true;
 			}
+			// #endif
+			
+			// #ifdef MP-WEIXIN
+			let his = uni.getStorageSync('historyData') || [];
+			!his.includes(this.search) && his.push(this.search) && uni.setStorageSync('historyData', his);
+			this.historyData = his;
+			if (this.historyData.length > 0 && !this.isHistoryData) {
+				this.isHistoryData = true;
+			}
+			// #endif
 		},
-		del(){
-			localStorage.removeItem("historyData");
+		del() {
+			// #ifdef H5
+			localStorage.removeItem('historyData');
 			this.historyData = [];
 			this.isHistoryData = false;
+			// #endif
+
+			// #ifdef MP-WEIXIN
+			uni.removeStorageSync('historyData');
+			this.historyData = [];
+			this.isHistoryData = false;
+			// #endif
 		}
 	},
 	created() {
+		// #ifdef H5
 		let his = JSON.parse(localStorage.getItem('historyData')) || [];
 		this.historyData = his;
 		if (this.historyData.length > 0) {
 			this.isHistoryData = true;
 		}
+		// #endif
+		
+		// #ifdef MP-WEIXIN
+		let his = uni.getStorageSync('historyData') || [];
+		this.historyData = his;
+		if (this.historyData.length > 0) {
+			this.isHistoryData = true;
+		}
+		// #endif
 	},
 	watch: {
 		search(curVal, oldVal) {
@@ -101,7 +129,7 @@ export default {
 		position: relative;
 		margin: 25rpx;
 		margin-top: 50rpx;
-		.del{
+		.del {
 			position: absolute;
 			width: 3.2vw;
 			height: 3.2vw;

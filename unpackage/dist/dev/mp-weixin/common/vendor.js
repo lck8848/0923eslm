@@ -1935,7 +1935,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 105:
+/***/ 108:
 /*!********************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/components/uni-icons/icons.js ***!
   \********************************************************************************/
@@ -2074,30 +2074,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   "cloud-download-filled": "\uE8E9",
   "headphones": "\uE8BF",
   "shop": "\uE609" };exports.default = _default;
-
-/***/ }),
-
-/***/ 111:
-/*!*****************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/shopApi.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.classifyList = classifyList;exports.foodList = foodList;exports.hotFoodList = hotFoodList;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
-// 获取指定商家的所有分类
-function classifyList(_x) {return _classifyList.apply(this, arguments);}
-
-
-// 获取指定分类的所有商品
-function _classifyList() {_classifyList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(id) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (0, _request.default)("/classifyList?id=" + id, {});case 2:return _context.abrupt("return", _context.sent);case 3:case "end":return _context.stop();}}}, _callee);}));return _classifyList.apply(this, arguments);}function foodList(_x2) {return _foodList.apply(this, arguments);}
-
-
-
-// 热门推荐
-function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 3:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
-              (0, _request.default)("/hotFoodList?id=" + id, {}));case 2:return _context3.abrupt("return", _context3.sent);case 3:case "end":return _context3.stop();}}}, _callee3);}));return _hotFoodList.apply(this, arguments);}
 
 /***/ }),
 
@@ -9024,6 +9000,30 @@ module.exports = g;
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+
+/***/ 71:
+/*!*****************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/shopApi.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.classifyList = classifyList;exports.foodList = foodList;exports.hotFoodList = hotFoodList;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+// 获取指定商家的所有分类
+function classifyList(_x) {return _classifyList.apply(this, arguments);}
+
+
+// 获取指定分类的所有商品
+function _classifyList() {_classifyList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(id) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (0, _request.default)("/classifyList?id=" + id, {});case 2:return _context.abrupt("return", _context.sent);case 3:case "end":return _context.stop();}}}, _callee);}));return _classifyList.apply(this, arguments);}function foodList(_x2) {return _foodList.apply(this, arguments);}
+
+
+
+// 热门推荐
+function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 3:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+              (0, _request.default)("/hotFoodList?id=" + id, {}));case 2:return _context3.abrupt("return", _context3.sent);case 3:case "end":return _context3.stop();}}}, _callee3);}));return _hotFoodList.apply(this, arguments);}
 
 /***/ })
 
