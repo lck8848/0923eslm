@@ -73,6 +73,19 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
       var itemStr = JSON.stringify(item);
       uni.navigateTo({
         url: "/pages/shop/shop?item=".concat(itemStr) });
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+      var itemStr = JSON.stringify(item);
+      uni.navigateTo({
+        url: "/pages/shop/shop?item=".concat(itemStr) });
+=======
+      uni.navigateTo({
+        url: "/pages/shop/shop?item=".concat(item) });
+>>>>>>> e3f70d7bca68d775e894cd0062a2c370c9888ff9
+>>>>>>> 6e6bc2cd3bffce1ad2d457d6cb46650008da139d
+>>>>>>> 0a04ecbc0e4ca938c041b1a5bd8765024c72a565
 
     },
     getTop: function getTop() {
