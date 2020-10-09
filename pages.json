@@ -43,6 +43,16 @@
 			"style": {
 				"navigationBarTitleText": "搜索"
 			}
+		}, {
+			"path": "pages/addAddress/addAddress",
+			"style": {
+				"navigationBarTitleText": "添加地址"
+			}
+		}, {
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "我的地址"
+			}
 		}
 	],
 	"tabBar": {
