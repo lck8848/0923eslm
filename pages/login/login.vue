@@ -22,6 +22,7 @@
 </template>
 
 <script>
+	import { userLogin } from '../../api/login.js'; 
 export default {
 	data() {
 		return {
@@ -30,8 +31,24 @@ export default {
 		};
 	},
 	methods: {
-		login() {
+		async login() {
 			console.log(this.username, this.password);
+			let  username = this.username;
+			let  password = this.password;
+			
+			if(username == '' || password == ''){
+				console.log('用户名或密码不为空');
+				return;
+			}
+			let params = {username,password};
+			let { code,message } =  await userLogin(params);
+			
+			if(code == 200){
+				console.log(message);
+			}else {
+				console.log(message);
+			}
+			
 		}
 	}
 };
