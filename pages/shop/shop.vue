@@ -90,7 +90,7 @@
 												<p class="fooddetails-desc">{{f.desc}}</p>
 												<p class="fooddetails-sales">
 													<text>月售{{f.sell}}份</text>
-													<text>好评率{{sell_price}}%</text>
+													<text>好评率{{f.sell_price}}%</text>
 												</p>
 												<view class="fooddetails-activityRow">
 													<text class="foodcommon-activity">
@@ -121,7 +121,7 @@
 			</view>
 			<view v-if="active == 1" class="data1">评价</view>
 			<view v-if="active == 2" class="data2">商家</view>
-			
+			{{ foodsData[0] }}
 		</view>
 	</view>
 </template>
@@ -145,7 +145,6 @@ export default {
 			let res = await classifyList(this.m_item.m_id);
 			// 
 			this.foodsData = res.classifyList;
-			// return;
 			// 保存所有的Promise对象
 			let proArr = [];
 			this.foodsData.map( item =>{
@@ -153,13 +152,8 @@ export default {
 			})
 			// 并发执行
 			let result = await Promise.all(proArr);
-			console.log(result.length);
 			result.forEach((x,key)=>{
-				console.log('top',this.foodsData[key]);
-				// console.log(123,this.foodsData[key]);
 				this.foodsData[key].food = x.classifyList;
-				console.log('footer',this.foodsData[key]);
-				// console.log(555);
 			})
 			console.log("123",this.foodsData);
 		},
@@ -175,10 +169,11 @@ export default {
 			this.active = event.detail.index;
 		}
 	},
-	created(){
+	async created(){
 		// 获取当前商家的所有分类
 		this.getClassifyList();
 		this.getHotFoodList();
+		console.log(this.foodsData);
 	},
 	onLoad(e){
 		// 获取点击商家的信息
