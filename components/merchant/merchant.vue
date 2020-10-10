@@ -39,9 +39,7 @@
 				</view>
 			</view>
 			</view>
-			<view class="filex" v-show="isMenuFixs" @click="getTop">
-				<image class="filexImg" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM4IiBoZWlnaHQ9IjEyOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOCAxMSkiIGZpbGw9IiM5OTkiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHJlY3QgeD0iMi4yMzkiIHdpZHRoPSI5OC41MjIiIGhlaWdodD0iOC45MTciIHJ4PSI0LjQ1OCIvPjxyZWN0IHRyYW5zZm9ybT0icm90YXRlKDkwIDUxLjUgNjIuNDE3KSIgeD0iNi43MTciIHk9IjU3Ljk1OCIgd2lkdGg9Ijg5LjU2NSIgaGVpZ2h0PSI4LjkxNyIgcng9IjQuNDU4Ii8+PHJlY3QgdHJhbnNmb3JtPSJzY2FsZSgtMSAxKSByb3RhdGUoNDUgMCAtMjUuNzU3KSIgeD0iLTYuNjcxIiB5PSI0MC4xNzEiIHdpZHRoPSI3MS42NTIiIGhlaWdodD0iOC45MTciIHJ4PSI0LjQ1OCIvPjxyZWN0IHRyYW5zZm9ybT0icm90YXRlKDQ1IDczLjkzOCA0NC42MykiIHg9IjM4LjExMiIgeT0iNDAuMTcxIiB3aWR0aD0iNzEuNjUyIiBoZWlnaHQ9IjguOTE3IiByeD0iNC40NTgiLz48L2c+PC9zdmc+" mode=""></image>
-			</view>
+			
 
 	</view>
 </template>
@@ -49,15 +47,16 @@
 <script>
 	import { merchantList } from '../../api/homeApi.js';
 	export default {
-		props:['fId','isMenuFix'],
+		props:['fId'],
 		data() {
 			return {
 				 merchantList:[],
-				 isMenuFixs: this.isMenuFix,
-				 active: 0
+				 active: 0,
+				
 				
 			}
 		},
+		
 		methods: {
 			getShopPage(item){
 				let itemStr = JSON.stringify(item);
@@ -116,7 +115,6 @@
 					case 2:
 						// 销量最高排序
 						this.sortMerList("sales_number",false);
-						console.log(this.merchantList);
 						break;
 					default:
 						break;
@@ -146,6 +144,7 @@
 		created(){
 			// 初始化加载，获取商家信息
 			this.getMerchantList();
+			console.log(123,this.fId);
 		}
 	}
 </script>

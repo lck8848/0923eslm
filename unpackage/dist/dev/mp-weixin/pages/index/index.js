@@ -102,7 +102,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uniRate: function() {
-    return __webpack_require__.e(/*! import() | components/uni-rate/uni-rate */ "components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/components/uni-rate/uni-rate.vue */ 82))
+    return __webpack_require__.e(/*! import() | components/uni-rate/uni-rate */ "components/uni-rate/uni-rate").then(__webpack_require__.bind(null, /*! @/components/uni-rate/uni-rate.vue */ 95))
   }
 }
 var render = function() {
@@ -399,7 +399,7 @@ var _homeApi = __webpack_require__(/*! @/api/homeApi.js */ 21);function _interop
   onPageScroll: function onPageScroll(e) {
     // 滚到到一定高度显示
     var currentHeigth = e.scrollTop;
-
+    console.log(currentHeigth);
     var scrollHeigth = 200;
     if (currentHeigth > scrollHeigth) {
       this.isMenuFix = true;

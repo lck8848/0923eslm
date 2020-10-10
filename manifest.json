@@ -47,5 +47,16 @@
             "urlCheck" : true,
             "es6" : true
         }
+    },
+    "h5" : {
+        "devServer" : {
+            "port" : 9865
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        },
+        "title" : "饿死了么"
     }
 }

@@ -7,7 +7,9 @@
         "pages/login/login",
         "pages/shop/shop",
         "pages/classify/classify",
-        "pages/search/search"
+        "pages/search/search",
+        "pages/addAddress/addAddress",
+        "pages/address/address"
     ],
     "subPackages": [],
     "window": {
@@ -62,5 +64,5 @@
         "van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
         "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
     },
-    "sitemapLocation": "sitemap48.json"
+    "sitemapLocation": "sitemap85.json"
 }
