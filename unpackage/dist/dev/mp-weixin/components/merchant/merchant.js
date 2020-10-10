@@ -193,8 +193,6 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
       merchantList: [],
       active: 0 };
 
-
-
   },
 
   methods: {
@@ -270,9 +268,8 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
                   (0, _homeApi.merchantList)(params));case 4:res = _context.sent;
 
                 _this.merchantList = res.merchantList;
-                console.log(_this.merchantList);
                 // 默认第一个加载对距离最近排序
-                _this.sortMerList("m_id", false);case 8:case "end":return _context.stop();}}}, _callee);}))();
+                _this.sortMerList("m_id", false);case 7:case "end":return _context.stop();}}}, _callee);}))();
     } },
 
 
@@ -284,7 +281,6 @@ var _homeApi = __webpack_require__(/*! ../../api/homeApi.js */ 21);function _int
   created: function created() {
     // 初始化加载，获取商家信息
     this.getMerchantList();
-    console.log(123, this.fId);
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -51,9 +51,7 @@
 		data() {
 			return {
 				 merchantList:[],
-				 active: 0,
-				
-				
+				 active: 0
 			}
 		},
 		
@@ -130,7 +128,6 @@
 				let res = await merchantList(params);
 				
 				this.merchantList = res.merchantList;
-				console.log(this.merchantList);
 				// 默认第一个加载对距离最近排序
 				this.sortMerList("m_id",false);
 			}
@@ -144,39 +141,39 @@
 		created(){
 			// 初始化加载，获取商家信息
 			this.getMerchantList();
-			console.log(123,this.fId);
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	#menu {
+	.home-container #menu {
 		position: fixed;
 		top: 82px;
+		// top: 150px;
 		left: 0;
 		width: 100%;
 		background-color: #fff;
 		z-index: 15;
 	}
 
-	.filex {
-		display: flex;
-		position: fixed;
-		bottom: 160rpx;
-		right: 30rpx;
-		align-items: center;
-		justify-content: center;
-		width: 80rpx;
-		height: 80rpx;
-		border-radius: 50%;
-		border: 1px solid #ccc;
-		background-color: #fff;
-		z-index: 10;
-		.filexImg {
-			width: 55rpx;
-			height: 55rpx;
-		}
-	}
+	// .filex {
+	// 	display: flex;
+	// 	position: fixed;
+	// 	bottom: 160rpx;
+	// 	right: 30rpx;
+	// 	align-items: center;
+	// 	justify-content: center;
+	// 	width: 80rpx;
+	// 	height: 80rpx;
+	// 	border-radius: 50%;
+	// 	border: 1px solid #ccc;
+	// 	background-color: #fff;
+	// 	z-index: 10;
+	// 	.filexImg {
+	// 		width: 55rpx;
+	// 		height: 55rpx;
+	// 	}
+	// }
 	.home-container .merchant-container {
 		margin-top: 80rpx;
 	}
