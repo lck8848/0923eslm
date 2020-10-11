@@ -1935,10 +1935,17 @@ function normalizeComponent (
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 120:
 /*!********************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/components/uni-icons/icons.js ***!
   \********************************************************************************/
+=======
+/***/ 121:
+/*!*********************************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/components/uni-icons/icons.js ***!
+  \*********************************************************************************/
+>>>>>>> 59f3d280c823e8a45f7b126ff71d8129bd2a0db0
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9003,10 +9010,32 @@ module.exports = g;
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 63:
 /*!*****************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/shopApi.js ***!
   \*****************************************************************/
+=======
+/***/ 55:
+/*!****************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/login.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.userLogin = userLogin;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+// 用户登录
+function userLogin(_x) {return _userLogin.apply(this, arguments);}function _userLogin() {_userLogin = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(data) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+              (0, _request.default)("/login", { data: data, method: 'POST' }));case 2:return _context.abrupt("return", _context.sent);case 3:case "end":return _context.stop();}}}, _callee);}));return _userLogin.apply(this, arguments);}
+
+/***/ }),
+
+/***/ 64:
+/*!******************************************************************!*\
+  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/shopApi.js ***!
+  \******************************************************************/
+>>>>>>> 59f3d280c823e8a45f7b126ff71d8129bd2a0db0
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

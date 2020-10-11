@@ -27,4 +27,28 @@
 .classify-container {
   height: 2000rpx;
 }
+.classify-container .filex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  bottom: 160rpx;
+  right: 30rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 10;
+}
+.classify-container .filex .filexImg {
+  width: 55rpx;
+  height: 55rpx;
+}
 

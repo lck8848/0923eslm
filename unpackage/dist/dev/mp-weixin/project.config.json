@@ -4,7 +4,11 @@
         "ignore": []
     },
     "setting": {
+<<<<<<< HEAD
         "urlCheck": true,
+=======
+        "urlCheck": false,
+>>>>>>> 59f3d280c823e8a45f7b126ff71d8129bd2a0db0
         "es6": true,
         "enhance": false,
         "postcss": true,
