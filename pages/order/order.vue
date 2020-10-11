@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="order-container">
+		<view class="order-container" v-if="false">
 			<view class="nologin">
 				<image class="img" src="/static/images/home/elm.png"></image>
 				<view class="title">登录后查看外卖订单</view>
@@ -26,6 +26,9 @@
 					</view>
 				</view>
 			</view>
+			<view class="division">
+				
+			</view>
 			<view class="center">
 				
 					<view class="left">
@@ -36,6 +39,9 @@
 						￥21.41
 					</view>
 					
+			</view>
+			<view class="division">
+				
 			</view>
 			<view class="footer">
 				<button class="btn" type="primary" plain="true" size="mini">再来一单</button>
@@ -60,6 +66,9 @@
 					</view>
 				</view>
 			</view>
+			<view class="division">
+				
+			</view>
 			<view class="center">
 				
 					<view class="left">
@@ -70,6 +79,9 @@
 						￥21.41
 					</view>
 					
+			</view>
+			<view class="division">
+				
 			</view>
 			<view class="footer">
 				<button class="btn" type="primary" plain="true" size="mini">再来一单</button>
@@ -94,6 +106,9 @@
 					</view>
 				</view>
 			</view>
+			<view class="division">
+				
+			</view>
 			<view class="center">
 				
 					<view class="left">
@@ -104,6 +119,9 @@
 						￥21.41
 					</view>
 					
+			</view>
+			<view class="division">
+				
 			</view>
 			<view class="footer">
 				<button class="btn" type="primary" plain="true" size="mini">再来一单</button>
@@ -125,10 +143,15 @@ export default {
 <style lang="scss" scoped>
 	.container {
 		background-color: #F5F5F5;
+		height: 800px;
 	}
 	.order-list {
 		background-color: #fff;
 		margin-top: 20rpx;
+		
+		.division {
+			border-top: 1px solid #e9e9e9;
+		}
 		.top {
 			display: flex;
 			align-items: center;

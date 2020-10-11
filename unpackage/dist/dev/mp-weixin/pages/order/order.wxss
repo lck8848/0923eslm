@@ -26,10 +26,14 @@
 /* 文章场景相关 */
 .container.data-v-127632e4 {
   background-color: #F5F5F5;
+  height: 800px;
 }
 .order-list.data-v-127632e4 {
   background-color: #fff;
   margin-top: 20rpx;
+}
+.order-list .division.data-v-127632e4 {
+  border-top: 1px solid #e9e9e9;
 }
 .order-list .top.data-v-127632e4 {
   display: -webkit-box;
