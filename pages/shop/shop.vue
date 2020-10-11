@@ -118,9 +118,9 @@
 													<text>
 														<text class="cartbutton-minPurchase"></text>
 														<text class="cartbutton-entitybutton">
-															<text><image src="/static/images/shop/subtract.png"></image></text>
-															<text class="num">1</text>
-															<text><image src="/static/images/shop/add.png"></image></text>
+															<text v-if="selectFood.includes(f.id)" @click="sub(f)"><image src="/static/images/shop/subtract.png"></image></text>
+															<text v-if="selectFood.includes(f.id)" class="num">1</text>
+															<text @click="add(f)"><image src="/static/images/shop/add.png"></image></text>
 														</text>
 													</text>
 												</view>
@@ -137,11 +137,19 @@
 			<view v-if="active == 2" class="data2">商家</view>
 		</view>
 		<view class="shopcart-bottom">
-			<view class="mj">
-				<text>满30减3元</text>
-			</view>
-			<view class="select-goods">
-				
+			<view class="mj"><text>满30减3元,满38减5元,满58元减8元</text></view>
+			<view class="desc">
+				<text v-if="cart" class="cart-img"></text>
+				<text v-if="!cart" class="select-img"><text class="count-num">2</text></text>
+				<view class="select-goods">
+					<view v-if="select" class="no_select item">未选购商品</view>
+					<view v-if="!select" class="select item">¥</view>
+					<view class="send-money">另需配送费{{ m_item.distribution }}元</view>
+				</view>
+				<view class="end">
+					<view v-if="start" class="start-money item">¥{{ m_item.start_money }}起送</view>
+					<view v-if="!start" class="buy item">去结算</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -162,10 +170,27 @@ export default {
 			foodsData: [],
 			goodFoods: [],
 			isFoods: false,
-			show: false
+			selectFood: [],
+			cart: true,
+			select: true,
+			start: true
 		};
 	},
 	methods: {
+		add(f) {
+			!this.selectFood.includes(f.id) && this.selectFood.push(f.id);
+			this.cart = false;
+			this.select = false;
+			this.start = false;
+		},
+		sub(f) {
+			this.selectFood.includes(f.id) && this.selectFood.splice(this.selectFood.indexOf(f.id), 1);
+			if (this.selectFood.length == 0) {
+				this.cart = true;
+				this.select = true;
+				this.start = true;
+			}
+		},
 		tabtap(item) {
 			if (!this.sizeCalcState) {
 				this.calcSize();
@@ -567,7 +592,7 @@ export default {
 						// z-index: 1;
 						.scroller {
 							height: 100%;
-							padding-bottom: 10.666667vw;
+							padding-bottom: 18vw;
 							overflow-y: auto;
 							.item {
 								margin: 0;
@@ -740,6 +765,127 @@ export default {
 							}
 						}
 					}
+				}
+			}
+		}
+	}
+	.shopcart-bottom {
+		position: fixed;
+		bottom: 0;
+		.mj {
+			width: 100vw;
+			background-color: #fffad6;
+			border-top: 0.133333vw solid #f9e8a3;
+			opacity: 0.96;
+			line-height: 5.333333vw;
+			font-size: 20rpx;
+			text-align: center;
+		}
+		.desc {
+			display: flex;
+			align-items: center;
+			padding-left: 21.066667vw;
+			background-color: rgba(61, 61, 63, 0.9);
+			height: 12.8vw;
+			.cart-img {
+				position: absolute;
+				left: 3.2vw;
+				background-image: radial-gradient(circle, #363636 6.266667vw, #444 0);
+				bottom: 2vw;
+				width: 13.333333vw;
+				height: 13.333333vw;
+				box-sizing: border-box;
+				border-radius: 100%;
+				background-color: #3190e8;
+				border: 1.333333vw solid #444;
+				box-shadow: 0 -0.8vw 0.533333vw 0 rgba(0, 0, 0, 0.1);
+				will-change: transform;
+			}
+			.cart-img:before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: url('/static/images/shop/shopcart.svg') 50% no-repeat;
+				background-size: 0.6rem;
+				background-size: 6vw;
+				content: '';
+			}
+			.select-img {
+				position: absolute;
+				left: 3.2vw;
+				bottom: 2vw;
+				width: 13.333333vw;
+				height: 13.333333vw;
+				box-sizing: border-box;
+				border-radius: 100%;
+				background-color: #3190e8;
+				border: 1.333333vw solid #444;
+				box-shadow: 0 -0.8vw 0.533333vw 0 rgba(0, 0, 0, 0.1);
+				.count-num {
+					position: absolute;
+					right: -1.2vw;
+					top: -1.333333vw;
+					line-height: 1;
+					background-image: linear-gradient(-90deg, #ff7416, #ff3c15 98%);
+					color: #fff;
+					border-radius: 3.2vw;
+					padding: 0.533333vw 1.333333vw;
+					font-size: 20rpx;
+				}
+			}
+
+			.select-img:before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: url('/static/images/shop/shopcart_select.svg') 50% no-repeat;
+				background-size: 0.6rem;
+				background-size: 6vw;
+				content: '';
+			}
+			.select-goods {
+				flex: 1;
+				color: #999;
+				.item {
+					font-size: 26rpx;
+					line-height: normal;
+				}
+				.select {
+					font-size: 36rpx;
+					color: #fff;
+				}
+				.send-money {
+					font-size: 20rpx;
+				}
+			}
+			.end {
+				background-color: #535356;
+				height: 100%;
+				width: 28vw;
+				color: #fff;
+				text-align: center;
+				text-decoration: none;
+				font-size: 30rpx;
+				font-weight: 700;
+				user-select: none;
+				line-height: 12.8vw;
+				word-break: keep-all;
+				.buy {
+					height: 100%;
+					width: 28vw;
+					background-color: #38ca73;
+					color: #fff;
+					text-align: center;
+					text-decoration: none;
+					font-size: 30rpx;
+					font-weight: 700;
+					user-select: none;
+					line-height: 12.8vw;
+					word-break: keep-all;
 				}
 			}
 		}
