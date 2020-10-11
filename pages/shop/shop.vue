@@ -4,16 +4,18 @@
 			<view class="index"><view class="img"></view></view>
 			<image :src="m_item.m_img" mode="" class="header-img"></image>
 			<view class="info">
-				<view class="title"><text class="tt">{{m_item.m_name}}</text></view>
+				<view class="title">
+					<text class="tt">{{ m_item.m_name }}</text>
+				</view>
 				<view class="count">
-					<text class="p">评价{{m_item.grade}}</text>
-					<text class="y">月售{{m_item.sales_number}}单</text>
-					<text class="f">蜂鸟快送约{{m_item.time}}分钟</text>
+					<text class="p">评价{{ m_item.grade }}</text>
+					<text class="y">月售{{ m_item.sales_number }}单</text>
+					<text class="f">蜂鸟快送约{{ m_item.time }}分钟</text>
 				</view>
 				<view class="discounts">
 					<view class="item color-y">
 						<p class="index-dis">
-							<text class="price">¥{{m_item.distance}}</text>
+							<text class="price">¥10</text>
 							<text class="condition">
 								<image src="/static/images/shop/king.png"></image>
 								无门槛
@@ -37,7 +39,7 @@
 					</view>
 					<view class="right">8个优惠</view>
 				</view>
-				<p class="tmryy">{{m_item.signboard}}</p>
+				<p class="tmryy">公告：{{ m_item }}</p>
 			</view>
 			<view class="foods">
 				<van-tabs :active="active" @click="changeActive" color="#2395ff">
@@ -55,10 +57,10 @@
 							<view class="item" v-for="item in goodFoods" :key="item.id">
 								<image :src="item.fImg"></image>
 								<view class="info">
-									<p class="title">{{item.title}}</p>
-									<p class="desc">月售{{item.sell}} 好评率{{item.good}}%</p>
+									<p class="title">{{ item.title }}</p>
+									<p class="desc">月售{{ item.sell }} 好评率{{ item.good }}%</p>
 									<view class="buy">
-										<p class="price">¥{{item.sell_price}}</p>
+										<p class="price">¥{{ item.sell_price }}</p>
 										<image src="/static/images/shop/add.png" mode=""></image>
 									</view>
 								</view>
@@ -67,46 +69,58 @@
 					</view>
 				</view>
 				<view class="foodsInfo">
-					<van-sidebar :active-key="activeKey" class="foods_sidebar">
-						<view class="foods_sidebar_item" v-for="item in foodsData" :key="item.id">
+					<scroll-view scroll-y class="left-aside foods_sidebar">
+						<view v-for="item in foodsData" :key="item.c_id" class="f-item b-b foods_sidebar_item" :class="{ active: item.c_id === currentId }" @click="tabtap(item)">
 							<image :src="item.img" v-if="item.img" style="width: 26rpx;height: 26rpx;position: absolute;transform: translate(12rpx,48rpx);"></image>
-							<van-sidebar-item :title="(item.img ? '　' : '') + item.classify" />
+							<view>{{ (item.img ? '　' : '') + item.classify }}</view>
 						</view>
+					</scroll-view>
 
+					<scroll-view scroll-with-animation scroll-y class="right-aside" @scroll="asideScroll" :scroll-top="tabScrollTop">
 						<view class="menuview-menuList">
 							<view class="scroller">
-								<dl class="item" v-for="(item,index) in foodsData" :key="item.id">
+								<dl class="item s-list" v-for="(item, index) in foodsData" :key="item.c_id" v-if="isFoods" :id="'main-' + item.c_id">
 									<dt class="role">
 										<view class="category-title">
-											<strong class="category-name">{{item.classify}}</strong>
-											<text class="category-desc">{{item.desc}}</text>
+											<strong class="category-name">{{ item.classify }}</strong>
+											<text class="category-desc">{{ item.desc }}</text>
 										</view>
 									</dt>
-									<dd class="f_data" v-for="(f,i) in item.food" :key="f.id">
+									<!-- <dd @click="navToList(item.id, titem.id)"  class="f_data" v-for="(f, i) in item.food" :key="f.id" v-if="f.pid === item.id"> -->
+									<dd class="f_data" v-for="(f, i) in item.food" :key="f.id" v-if="f.p_id === item.c_id">
 										<view class="fooddetails-root">
 											<text class="fooddetails-logo"><image :src="f.fImg"></image></text>
 											<view class="fooddetails-info">
-												<p class="fooddetails-name"><text class="fooddetails-nameText">{{fj.title}}</text></p>
-												<p class="fooddetails-desc">{{f.desc}}</p>
+												<p class="fooddetails-name">
+													<text class="fooddetails-nameText">{{ f.title }}</text>
+												</p>
+												<p class="fooddetails-desc">{{ f.desc }}</p>
 												<p class="fooddetails-sales">
-													<text>月售{{f.sell}}份</text>
-													<text>好评率{{f.sell_price}}%</text>
+													<text style="margin-right: 10rpx;">月售{{ f.sell }}份</text>
+
+													<text>好评率{{ f.sell_price }}%</text>
 												</p>
 												<view class="fooddetails-activityRow">
 													<text class="foodcommon-activity">
-														<text class="mini-tag" v-if="f.discount.length > 0"><text class="foodcommon-rateGhost">{{f.discount}}折</text></text>
-														<text class="mini-tag" v-if="f.count.length > 0"><text class="foodcommon-rateGhost">每单限{{f.count}}份优惠</text></text>
+														<text class="mini-tag" v-if="f.discount">
+															<text class="foodcommon-rateGhost">{{ f.discount }}折</text>
+														</text>
+														<text class="mini-tag" v-if="f.count">
+															<text class="foodcommon-rateGhost">每单限{{ f.count }}份优惠</text>
+														</text>
 													</text>
 												</view>
 												<text class="salesInfo-price">
-													<text>¥{{f.sell_price}}</text>
-													<del v-if="f.raw_price">¥{{f.raw_price}}</del>
+													<text>¥{{ f.sell_price }}</text>
+													<del v-if="f.raw_price">¥{{ f.raw_price }}</del>
 												</text>
 												<view class="fooddetails-button">
 													<text>
 														<text class="cartbutton-minPurchase"></text>
 														<text class="cartbutton-entitybutton">
-															<a href="javascript;"><image src="/static/images/shop/add.png"></image></a>
+															<text><image src="/static/images/shop/subtract.png"></image></text>
+															<text class="num">1</text>
+															<text><image src="/static/images/shop/add.png"></image></text>
 														</text>
 													</text>
 												</view>
@@ -116,75 +130,132 @@
 								</dl>
 							</view>
 						</view>
-					</van-sidebar>
+					</scroll-view>
 				</view>
 			</view>
 			<view v-if="active == 1" class="data1">评价</view>
 			<view v-if="active == 2" class="data2">商家</view>
-			{{ foodsData[0] }}
+		</view>
+		<view class="shopcart-bottom">
+			<view class="mj">
+				<text>满30减3元</text>
+			</view>
+			<view class="select-goods">
+				
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	import { classifyList,foodList,hotFoodList } from '@/api/shopApi.js';
+import { classifyList, foodList, hotFoodList } from '@/api/shopApi.js';
 export default {
 	data() {
 		return {
+			sizeCalcState: false,
+			tabScrollTop: 0,
+			currentId: 1,
 			m_item: {},
 			active: 0,
 			icon: 'none',
-			activeKey: 0,
+			activeKey: 1,
 			foodsData: [],
-			goodFoods:[]
+			goodFoods: [],
+			isFoods: false,
+			show: false
 		};
 	},
 	methods: {
+		tabtap(item) {
+			if (!this.sizeCalcState) {
+				this.calcSize();
+			}
+			this.currentId = item.c_id;
+			let index = this.foodsData.findIndex(sitem => sitem.c_id === item.c_id);
+			this.tabScrollTop = this.foodsData[index].top;
+		},
+		//右侧栏滚动
+		asideScroll(e) {
+			if (!this.sizeCalcState) {
+				this.calcSize();
+			}
+			let scrollTop = e.detail.scrollTop;
+			let tabs = this.foodsData.filter(item => parseInt(item.top) <= scrollTop).reverse();
+			if (tabs.length > 0) {
+				this.currentId = tabs[0].c_id;
+			}
+		},
+		//计算右侧栏每个tab的高度等信息
+		calcSize() {
+			let h = 0;
+			this.foodsData.forEach(item => {
+				let view = uni.createSelectorQuery().select('#main-' + item.c_id);
+				view.fields(
+					{
+						size: true
+					},
+					data => {
+						item.top = h;
+						h += data.height;
+						item.bottom = h;
+					}
+				).exec();
+			});
+			this.sizeCalcState = true;
+		},
+		navToList(sid, tid) {
+			uni.navigateTo({
+				url: `/pages/product/list?fid=${this.currentId}&sid=${sid}&tid=${tid}`
+			});
+		},
 		// 获取指定商家的所有分类
-		async getClassifyList(){
+		async getClassifyList() {
+			var i = 1;
 			let res = await classifyList(this.m_item.m_id);
-			// 
+			//
 			this.foodsData = res.classifyList;
 			// 保存所有的Promise对象
 			let proArr = [];
-			this.foodsData.map( item =>{
+			this.foodsData.map(item => {
+				item.p_id = i++;
 				proArr.push(foodList(item.c_id));
-			})
+			});
 			// 并发执行
 			let result = await Promise.all(proArr);
-			result.forEach((x,key)=>{
+			result.forEach((x, key) => {
 				this.foodsData[key].food = x.classifyList;
-			})
-			console.log("123",this.foodsData);
+			});
+			this.foodsData.map(item => {
+				item.food.map(i => {
+					i.p_id = item.c_id;
+				});
+			});
+
+			this.isFoods = true;
 		},
-		
+
 		// 获取店长推荐的商品
-		async getHotFoodList(){
+		async getHotFoodList() {
 			let res = await hotFoodList(this.m_item.m_id);
 			this.goodFoods = res.hotFoodList;
-			console.log(res.hotFoodList);
 		},
 		changeActive(event) {
-			console.log(event.detail.index);
 			this.active = event.detail.index;
 		}
 	},
-	async created(){
+	async created() {
 		// 获取当前商家的所有分类
 		this.getClassifyList();
 		this.getHotFoodList();
-
-		console.log("123456",this.m_item)
 	},
-	mounted(){
-		let temp_img = document.querySelector(".container .app-dp .index .img");
-		console.log("temp_img",temp_img)
-		temp_img.style.backgroundImage =  `url(${this.m_item.adv_img})`;
+	mounted() {
+		let temp_img = document.querySelector('.container .app-dp .index .img');
+		temp_img.style.backgroundImage = `url(${this.m_item.adv_img})`;
 	},
-	onLoad(e){
+	onLoad(e) {
 		// 获取点击商家的信息
 		this.m_item = JSON.parse(e.item);
-	},
+	}
 };
 </script>
 
@@ -224,8 +295,7 @@ export default {
 				white-space: nowrap;
 				letter-spacing: -4rpx;
 				text-align: center;
-				.tt{
-					
+				.tt {
 					margin: 0 auto;
 				}
 				.tt:after {
@@ -463,14 +533,38 @@ export default {
 				}
 			}
 			.foodsInfo {
-				.foods_sidebar {
-					position: relative;
+				// position: relative;
+				display: flex;
+				.left-aside {
+					flex: 1;
+					flex-shrink: 0;
+					width: 80rpx;
+					height: 100%;
+					background-color: #f8f8f8;
+					.f-item {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: 100%;
+						height: 100upx;
+						font-size: 28upx;
+						color: #666666;
+						position: relative;
+						&.active {
+							color: #333333;
+							background: #ffffff;
+						}
+					}
+				}
+				.right-aside {
+					flex: 1;
+					height: 100vw;
 					.menuview-menuList {
-						position: absolute;
-						width: 576rpx;
-						height: 100vw;
-						top: 0rpx;
-						left: 170rpx;
+						// position: absolute;
+						// width: 576rpx;
+						// top: 0rpx;
+						// left: 170rpx;
+						// z-index: 1;
 						.scroller {
 							height: 100%;
 							padding-bottom: 10.666667vw;
@@ -626,8 +720,14 @@ export default {
 													color: #666;
 												}
 												.cartbutton-entitybutton {
-													display: inline-flex;
-													align-items: center;
+													// display: inline-flex;
+													// align-items: center;
+													.num {
+														display: inline-block;
+														margin: 0 20rpx;
+														font-size: 28rpx;
+														transform: translateY(-10rpx);
+													}
 													image {
 														width: 44rpx;
 														height: 44rpx;

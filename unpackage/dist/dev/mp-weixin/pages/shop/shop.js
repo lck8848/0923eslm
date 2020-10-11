@@ -130,7 +130,18 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -263,65 +274,122 @@ var _shopApi = __webpack_require__(/*! @/api/shopApi.js */ 63);function _interop
 {
   data: function data() {
     return {
+      sizeCalcState: false,
+      tabScrollTop: 0,
+      currentId: 1,
       m_item: {},
       active: 0,
       icon: 'none',
-      activeKey: 0,
+      activeKey: 1,
       foodsData: [],
-      goodFoods: [] };
+      goodFoods: [],
+      isFoods: false };
 
   },
   methods: {
+    tabtap: function tabtap(item) {
+      // if (!this.sizeCalcState) {
+      // 	this.calcSize();
+      // }
+
+      this.currentId = item.c_id;
+      var index = this.foodsData.findIndex(function (sitem) {return sitem.c_id === item.c_id;});
+      this.tabScrollTop = this.foodsData[index].top;
+      console.log("tabScrollTop", this.tabScrollTop);
+    },
+    //右侧栏滚动
+    asideScroll: function asideScroll(e) {
+      if (!this.sizeCalcState) {
+        this.calcSize();
+      }
+      var scrollTop = e.detail.scrollTop;
+      console.log(scrollTop);
+      var tabs = this.foodsData.filter(function (item) {return item.top <= scrollTop;}).reverse();
+      if (tabs.length > 0) {
+        this.currentId = tabs[0].c_id;
+        console.log("currentId", this.currentId);
+      }
+    },
+    //计算右侧栏每个tab的高度等信息
+    calcSize: function calcSize() {
+      var h = 0;
+      this.foodsData.forEach(function (item) {
+        var view = uni.createSelectorQuery().select('#main-' + item.c_id);
+        view.fields(
+        {
+          size: true },
+
+        function (data) {
+          item.top = h;
+          h += data.height;
+          item.bottom = h;
+        }).
+        exec();
+      });
+      this.sizeCalcState = true;
+    },
+    navToList: function navToList(sid, tid) {
+      uni.navigateTo({
+        url: "/pages/product/list?fid=".concat(this.currentId, "&sid=").concat(sid, "&tid=").concat(tid) });
+
+    },
     // 获取指定商家的所有分类
-    getClassifyList: function getClassifyList() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res, proArr, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  (0, _shopApi.classifyList)(_this.m_item.m_id));case 2:res = _context.sent;
-                // 
+    getClassifyList: function getClassifyList() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var i, res, proArr, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                i = 1;_context.next = 3;return (
+                  (0, _shopApi.classifyList)(_this.m_item.m_id));case 3:res = _context.sent;
+                //
                 _this.foodsData = res.classifyList;
-                // return;
                 // 保存所有的Promise对象
                 proArr = [];
                 _this.foodsData.map(function (item) {
+                  item.p_id = i++;
                   proArr.push((0, _shopApi.foodList)(item.c_id));
                 });
+                console.log('foodsData1', _this.foodsData);
                 // 并发执行
-                _context.next = 8;return Promise.all(proArr);case 8:result = _context.sent;
-                console.log(result.length);
+                _context.next = 10;return Promise.all(proArr);case 10:result = _context.sent;
                 result.forEach(function (x, key) {
-                  console.log('top', _this.foodsData[key]);
-                  // console.log(123,this.foodsData[key]);
                   _this.foodsData[key].food = x.classifyList;
-                  console.log('footer', _this.foodsData[key]);
-                  // console.log(555);
                 });
-                console.log("123", _this.foodsData);case 12:case "end":return _context.stop();}}}, _callee);}))();
+                _this.foodsData.map(function (item) {
+                  item.food.map(function (i) {
+                    i.p_id = item.c_id;
+                  });
+                });
+                _this.isFoods = true;
+                console.log('foodsData', _this.foodsData);case 15:case "end":return _context.stop();}}}, _callee);}))();
     },
 
     // 获取店长推荐的商品
     getHotFoodList: function getHotFoodList() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (
                   (0, _shopApi.hotFoodList)(_this2.m_item.m_id));case 2:res = _context2.sent;
                 _this2.goodFoods = res.hotFoodList;
-                console.log(res.hotFoodList);case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+                console.log('goodFoods', _this2.goodFoods);case 5:case "end":return _context2.stop();}}}, _callee2);}))();
     },
     changeActive: function changeActive(event) {
       console.log(event.detail.index);
       this.active = event.detail.index;
     } },
 
-  created: function created() {
-    // 获取当前商家的所有分类
-    this.getClassifyList();
-    this.getHotFoodList();
-    console.log("123456", this.m_item);
+  created: function created() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+              // 获取当前商家的所有分类
+              _this3.getClassifyList();
+              _this3.getHotFoodList();
+              if (!_this3.sizeCalcState) {
+                _this3.calcSize();
+              }
+              console.log('m_item', _this3.m_item);case 4:case "end":return _context3.stop();}}}, _callee3);}))();
   },
   mounted: function mounted() {
-    var temp_img = document.querySelector(".container .app-dp .index .img");
-    console.log("temp_img", temp_img);
+    var temp_img = document.querySelector('.container .app-dp .index .img');
+    console.log('temp_img', temp_img);
     temp_img.style.backgroundImage = "url(".concat(this.m_item.adv_img, ")");
   },
   onLoad: function onLoad(e) {
     // 获取点击商家的信息
     this.m_item = JSON.parse(e.item);
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

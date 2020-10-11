@@ -24,6 +24,101 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.left-aside.data-v-71bf3ec6 {
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+  width: 200rpx;
+  height: 100%;
+  background-color: #fff;
+}
+.f-item.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  width: 100%;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: green;
+  position: relative;
+}
+.f-item.active.data-v-71bf3ec6 {
+  color: green;
+  background: #f8f8f8;
+}
+.f-item.active.data-v-71bf3ec6:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 36rpx;
+  width: 8rpx;
+  background-color: green;
+  -webkit-border-radius: 0 4px 4px 0;
+          border-radius: 0 4px 4px 0;
+  opacity: 0.8;
+}
+.s-item.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  height: 70rpx;
+  padding-top: 8rpx;
+  font-size: 28rpx;
+  color: green;
+}
+.t-list.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  width: 100%;
+  background: #fff;
+  padding-top: 12rpx;
+}
+.t-list.data-v-71bf3ec6:after {
+  content: '';
+  -webkit-box-flex: 99;
+  -webkit-flex: 99;
+          flex: 99;
+  height: 0;
+}
+.t-item.data-v-71bf3ec6 {
+  -webkit-flex-shrink: 0;
+          flex-shrink: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  width: 176rpx;
+  font-size: 26rpx;
+  color: #666;
+  padding-bottom: 20rpx;
+}
+.t-item image.data-v-71bf3ec6 {
+  width: 140rpx;
+  height: 140rpx;
+}
 .container .app-dp.data-v-71bf3ec6 {
   position: relative;
 }
@@ -332,31 +427,39 @@
   width: 44rpx;
   height: 44rpx;
 }
+.container .app-dp .data0 .foodsInfo.data-v-71bf3ec6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
 .container .app-dp .data0 .foodsInfo .foods_sidebar.data-v-71bf3ec6 {
-  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList.data-v-71bf3ec6 {
-  position: absolute;
-  width: 576rpx;
+.container .app-dp .data0 .foodsInfo .right-aside.data-v-71bf3ec6 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList.data-v-71bf3ec6 {
   height: 100vw;
-  top: 0rpx;
-  left: 170rpx;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller.data-v-71bf3ec6 {
   height: 100%;
   padding-bottom: 10.666667vw;
   overflow-y: auto;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item.data-v-71bf3ec6 {
   margin: 0;
   padding: 0;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .role.data-v-71bf3ec6 {
   position: relative;
   margin-left: 2.666667vw;
   padding: 2vw 8vw 2vw 0;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role .category-title.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .role .category-title.data-v-71bf3ec6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -365,7 +468,7 @@
           align-items: center;
   overflow: hidden;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role .category-title .category-name.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .role .category-title .category-name.data-v-71bf3ec6 {
   margin-right: 1.333333vw;
   font-weight: 700;
   font-size: 24rpx;
@@ -374,7 +477,7 @@
   -webkit-flex: none;
           flex: none;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .role .category-title .category-desc.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .role .category-title .category-desc.data-v-71bf3ec6 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;
@@ -384,14 +487,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data.data-v-71bf3ec6 {
   position: relative;
   padding: 0;
   margin: 0;
   min-height: 30.666667vw;
   padding-left: 2.666667vw;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root.data-v-71bf3ec6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -400,7 +503,7 @@
   padding: 2.666667vw 0;
   margin-bottom: 0.133333vw;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-logo.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-logo.data-v-71bf3ec6 {
   width: 25.333333vw;
   height: 25.333333vw;
   -webkit-box-flex: 0;
@@ -409,14 +512,14 @@
   margin-right: 2.666667vw;
   position: relative;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-logo image.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-logo image.data-v-71bf3ec6 {
   max-width: 100%;
   width: 100%;
   height: 190rpx;
   -webkit-border-radius: 0.533333vw;
           border-radius: 0.533333vw;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info.data-v-71bf3ec6 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;
@@ -424,7 +527,7 @@
   padding-bottom: 6.666667vw;
   padding-right: 4vw;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-name.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-name.data-v-71bf3ec6 {
   margin: 0;
   font-weight: 400;
   position: relative;
@@ -436,7 +539,7 @@
   -webkit-align-items: start;
           align-items: start;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-name .fooddetails-nameText.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-name .fooddetails-nameText.data-v-71bf3ec6 {
   font-weight: 700;
   overflow: hidden;
   font-size: 30rpx;
@@ -444,7 +547,7 @@
   width: 40vw;
   text-overflow: ellipsis;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-desc.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-desc.data-v-71bf3ec6 {
   margin: 1vw 0;
   width: 42.666667vw;
   font-weight: 400;
@@ -454,7 +557,7 @@
   white-space: nowrap;
   font-size: 20rpx;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-sales.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-sales.data-v-71bf3ec6 {
   font-size: 20rpx;
   margin: 1vw 0 !important;
   color: #999;
@@ -462,17 +565,17 @@
   min-height: 1em;
   font-weight: 400;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow.data-v-71bf3ec6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity.data-v-71bf3ec6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity .mini-tag.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity .mini-tag.data-v-71bf3ec6 {
   position: relative;
   font-size: 40rpx;
   color: transparent;
@@ -480,7 +583,7 @@
   height: 4vw;
   padding: 0 0.8vw;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity .mini-tag .foodcommon-rateGhost.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-activityRow .foodcommon-activity .mini-tag .foodcommon-rateGhost.data-v-71bf3ec6 {
   position: absolute;
   left: -20rpx;
   top: -10rpx;
@@ -492,7 +595,7 @@
   border: 0.26667vw solid rgba(235, 102, 82, 0.3);
   color: #eb6551;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price.data-v-71bf3ec6 {
   position: absolute;
   bottom: 14rpx;
   color: #ff5339;
@@ -506,27 +609,27 @@
   -webkit-align-items: baseline;
           align-items: baseline;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price text.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price text.data-v-71bf3ec6 {
   margin-right: 0.266667vw;
   font-size: 30rpx;
   line-height: 4.266667vw;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price ._del.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .salesInfo-price ._del.data-v-71bf3ec6 {
   font-size: 24rpx;
   color: #999;
   margin-left: 1.6vw;
   line-height: 4.266667vw;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button.data-v-71bf3ec6 {
   position: absolute;
   right: 4vw;
   bottom: 10rpx;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-minPurchase.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-minPurchase.data-v-71bf3ec6 {
   font-size: 20rpx;
   color: #666;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-entitybutton.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-entitybutton.data-v-71bf3ec6 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: inline-flex;
@@ -534,7 +637,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.container .app-dp .data0 .foodsInfo .foods_sidebar .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-entitybutton image.data-v-71bf3ec6 {
+.container .app-dp .data0 .foodsInfo .right-aside .menuview-menuList .scroller .item .f_data .fooddetails-root .fooddetails-info .fooddetails-button .cartbutton-entitybutton image.data-v-71bf3ec6 {
   width: 44rpx;
   height: 44rpx;
 }

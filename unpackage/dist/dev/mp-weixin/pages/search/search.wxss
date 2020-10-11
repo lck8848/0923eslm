@@ -95,6 +95,7 @@
   color: #666;
   background-color: #f7f7f7;
   padding: 2vw 2.666667vw;
-  border-radius: 0.666667vw;
+  -webkit-border-radius: 0.666667vw;
+          border-radius: 0.666667vw;
 }
 
