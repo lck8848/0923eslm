@@ -12,6 +12,9 @@ export default function request(url,options){
 			fail: (err) => {
 		        reject(err);
 		    },
+			header: {
+				'content-type': 'application/x-www-form-urlencoded'
+			} 
 			
 		});
 	})

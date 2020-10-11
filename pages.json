@@ -101,6 +101,7 @@
 			"van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
 			"van-popup": "/wxcomponents/vant/dist/popup/index",
 			"van-tag": "/wxcomponents/vant/dist/tag/index",
+			"van-toast": "/wxcomponents/vant/dist/toast/index",
 			"van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
 		}
 	}

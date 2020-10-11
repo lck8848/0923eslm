@@ -37,16 +37,27 @@ export default {
 			let  password = this.password;
 			
 			if(username == '' || password == ''){
-				console.log('用户名或密码不为空');
+				uni.showToast({
+				    title: '用户名或密码不为空',
+				    duration: 1500
+				});
 				return;
 			}
+			
 			let params = {username,password};
-			let { code,message } =  await userLogin(params);
+			let { code,message,userInfo } =  await userLogin(params);
 			
 			if(code == 200){
-				console.log(message);
+				// 登录成功，用户信息存入本地，然后跳转到首页
+				localStorage.setItem("userInfo",JSON.stringify(userInfo));
+				uni.switchTab({
+				    url: `/pages/index/index`
+				});
 			}else {
-				console.log(message);
+				uni.showToast({
+				    title: message,
+				    duration: 1500
+				});
 			}
 			
 		}

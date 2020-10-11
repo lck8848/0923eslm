@@ -39,7 +39,7 @@
 					</view>
 					<view class="right">8个优惠</view>
 				</view>
-				<p class="tmryy">公告：{{ m_item }}</p>
+				<p class="tmryy">公告：{{ m_item.notice }}</p>
 			</view>
 			<view class="foods">
 				<van-tabs :active="active" @click="changeActive" color="#2395ff">
