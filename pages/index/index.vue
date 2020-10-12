@@ -31,7 +31,7 @@
 					</view>
 				</view>
 				<view class="footer">
-					<van-cell value="限时6元开通" is-link value-class="red">
+					<van-cell value="限时6元开通" is-link value-class="red" title-width="50vw">
 						<view slot="title">
 							<view class="van-cell-text">
 								<van-icon name="/static/images/home/crown.png"></van-icon>
@@ -238,7 +238,7 @@
 			// 滚到到一定高度显示
 			let currentHeigth = e.scrollTop;
 			console.log(currentHeigth)
-			let scrollHeigth = 200;
+			let scrollHeigth = 100;
 			if(currentHeigth > scrollHeigth){
 				this.isMenuFix = true;
 			}else {

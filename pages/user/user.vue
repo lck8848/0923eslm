@@ -2,7 +2,19 @@
 	<view class="container">
 		<!--pages/user/user.wxml-->
 		<view class="user-container">
-			<navigator url="/pages/login/login" hover-class="none">
+			<navigator url="/pages/login/login" hover-class="none" v-if="userInfo">
+				<view class="top" to>
+					<view class="img">
+						<image
+							class="img"
+							src="/static/images/user/into.jpeg"
+						></image>
+					</view>
+					<view class="operation" bindtap="getLoginPage">{{userInfo.username}}</view>
+					<view class="right">></view>
+				</view>
+			</navigator>
+			<navigator url="/pages/login/login" hover-class="none" v-if="!userInfo">
 				<view class="top" to>
 					<view class="img">
 						<image
@@ -94,7 +106,13 @@
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			userInfo:""
+		};
+	},
+	created(){
+		let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+		this.userInfo = userInfo;
 	},
 	methods: {}
 };

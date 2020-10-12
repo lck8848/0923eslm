@@ -51,7 +51,7 @@ export default {
 				// 登录成功，用户信息存入本地，然后跳转到首页
 				localStorage.setItem("userInfo",JSON.stringify(userInfo));
 				uni.switchTab({
-				    url: `/pages/index/index`
+				    url: `/pages/user/user`
 				});
 			}else {
 				uni.showToast({
