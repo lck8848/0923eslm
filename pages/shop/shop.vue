@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="app-dp">
+		<view class="app-dp" @click="wuhu">
 			<view class="index"><view class="img"></view></view>
 			<image :src="m_item.m_img" mode="" class="header-img"></image>
 			<view class="info">
@@ -61,7 +61,9 @@
 									<p class="desc">月售{{ item.sell }} 好评率{{ item.good }}%</p>
 									<view class="buy">
 										<p class="price">¥{{ item.sell_price }}</p>
-										<image src="/static/images/shop/add.png" mode=""></image>
+										<text v-if="selectFood.includes(item.id)" @click="sub(item)"><image src="/static/images/shop/subtract.png"></image></text>
+										<text v-if="selectFood.includes(item.id)" class="num">1</text>
+										<image @click="add(item)" src="/static/images/shop/add.png" mode=""></image>
 									</view>
 								</view>
 							</view>
@@ -138,7 +140,39 @@
 		</view>
 		<view class="shopcart-bottom">
 			<view class="mj"><text>满30减3元,满38减5元,满58元减8元</text></view>
-			<view class="desc">
+			<view class="detail" v-if="detail">
+				<view class="cartview-cartheader">
+					<view class="cartview-headerText"><text>已选商品</text></view>
+					<a href="javascript:" class="cartview-cartheaderRemove">
+						<image src="/static/images/shop/delete.png" mode=""></image>
+						<text>清空</text>
+					</a>
+				</view>
+				<view class="entityList-cartbodyScroller">
+					<ul class="entityList-cartlist">
+						<li class="entityList-entityrow">
+							<text class="entityList-entityname">
+								<text class="entityList-name">西红柿炒鸡蛋（含米饭）</text>
+								<p class="entityList-entityspecs"></p>
+							</text>
+							<text class="entityList-entitytotal"><text class="entityList-entitytotalDiscount">¥17</text></text>
+							<text class="entityList-entitycartbutton">
+								<text class="cartbutton-entitybutton">
+									<text @click="sub(f)"><image src="/static/images/shop/subtract.png"></image></text>
+									<text class="num">1</text>
+									<text @click="add(f)"><image src="/static/images/shop/add.png"></image></text>
+								</text>
+							</text>
+						</li>
+					</ul>
+					<view class="entityList-entityrow">
+						<text class="entityList-entityname">餐盒</text>
+						<text class="entityList-entitytotal">1</text>
+						<text class="entityList-entitycartbutton"></text>
+					</view>
+				</view>
+			</view>
+			<view class="desc" @click="togger">
 				<text v-if="cart" class="cart-img"></text>
 				<text v-if="!cart" class="select-img"><text class="count-num">2</text></text>
 				<view class="select-goods">
@@ -182,6 +216,7 @@ export default {
 			totalNum:'',
 			// 当前登录用户的id
 			u_id:JSON.parse(localStorage.getItem("userInfo")).id,
+			detail:false
 		};
 	},
 	methods: {
@@ -223,6 +258,16 @@ export default {
 				this.select = true;
 				this.start = true;
 			}
+		},
+		togger(){
+			if(!this.detail && this.selectFood.length != 0){
+				this.detail = true;
+			}else{
+				this.detail = false;
+			}
+		},
+		wuhu(){
+			if(this.detail) this.detail = false;
 		},
 		tabtap(item) {
 			if (!this.sizeCalcState) {
@@ -819,6 +864,133 @@ export default {
 			line-height: 5.333333vw;
 			font-size: 20rpx;
 			text-align: center;
+		}
+		.detail {
+			.cartview-cartheader {
+				display: flex;
+				align-items: center;
+				padding: 0 4vw;
+				border-bottom: 0.133333vw solid #ddd;
+				background-color: #eceff1;
+				color: #666;
+				height: 10.666667vw;
+				.cartview-headerText {
+					flex: 1;
+					display: flex;
+					align-items: center;
+					color: #666;
+				}
+				.cartview-cartheaderRemove {
+					flex: none;
+					display: flex;
+					align-items: center;
+					padding-left: 4vw;
+					color: #666;
+					text-decoration: none;
+					font-size: 26rpx;
+					line-height: 4vw;
+					image {
+						width: 4vw;
+						height: 4vw;
+						fill: #ddd;
+						margin-right: 0.8vw;
+					}
+				}
+			}
+			.entityList-cartbodyScroller {
+				background-color: #ffffff;
+				overflow: auto;
+				max-height: 80vw;
+				.entityList-cartlist {
+					margin: 0;
+					padding: 0;
+					flex: none;
+					.entityList-entityrow {
+						display: flex;
+						align-items: center;
+						padding: 2vw 3.333333vw 2vw 0;
+						min-height: 10vw;
+						margin-left: 3.333333vw;
+						.entityList-entityname {
+							flex: 5.5;
+							line-height: normal;
+							.entityList-name {
+								display: inline-block;
+								font-style: normal;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								vertical-align: middle;
+								max-width: 46.666667vw;
+							}
+							.entityList-entityspecs {
+								width: 100%;
+								line-height: 3.333333vw;
+								color: #999;
+								font-size: 32rpx;
+							}
+						}
+						.entityList-entitytotal {
+							color: rgb(255, 83, 57);
+							flex: 2.5;
+							text-align: right;
+							white-space: nowrap;
+							font-weight: 700;
+							.entityList-entitytotalDiscount {
+								text-align: right;
+								white-space: nowrap;
+								font-weight: 700;
+								color: rgb(255, 83, 57);
+							}
+						}
+						.entityList-entitycartbutton {
+							flex: 3;
+							text-align: right;
+							.cartbutton-entitybutton {
+								transform: translateY(4rpx);
+								display: inline-flex;
+								font-size: 28rpx;
+								align-items: center;
+								.num {
+									display: inline-block;
+									margin: 0 20rpx;
+									font-size: 28rpx;
+									transform: translateY(-10rpx);
+								}
+								image {
+									width: 44rpx;
+									height: 44rpx;
+								}
+							}
+						}
+					}
+				}
+
+				.entityList-entityrow {
+					border-top: 0.133333vw solid #eee;
+					display: flex;
+					align-items: center;
+					padding: 2vw 3.333333vw 2vw 0;
+					min-height: 10vw;
+					margin-left: 3.333333vw;
+					font-size: 32rpx;
+					.entityList-entityname {
+						flex: 5.5;
+						line-height: normal;
+					}
+					.entityList-entitytotal {
+						flex: 2.5;
+						text-align: right;
+						white-space: nowrap;
+						font-weight: 700;
+						color: rgb(255, 83, 57);
+					}
+					.entityList-entitycartbutton {
+						flex: 3;
+						text-align: right;
+					}
+				}
+			}
 		}
 		.desc {
 			display: flex;
