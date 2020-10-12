@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="app-dp">
+		<view class="app-dp" @click="wuhu">
 			<view class="index"><view class="img"></view></view>
 			<image :src="m_item.m_img" mode="" class="header-img"></image>
 			<view class="info">
@@ -232,6 +232,9 @@ export default {
 			}else{
 				this.detail = false;
 			}
+		},
+		wuhu(){
+			if(this.detail) this.detail = false;
 		},
 		tabtap(item) {
 			if (!this.sizeCalcState) {
