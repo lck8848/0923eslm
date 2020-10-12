@@ -143,7 +143,7 @@
 				<text v-if="!cart" class="select-img"><text class="count-num">2</text></text>
 				<view class="select-goods">
 					<view v-if="select" class="no_select item">未选购商品</view>
-					<view v-if="!select" class="select item">¥</view>
+					<view v-if="!select" class="select item">¥{{ totalNum.totalNum }}</view>
 					<view class="send-money">另需配送费{{ m_item.distribution }}元</view>
 				</view>
 				<view class="end">
@@ -156,7 +156,7 @@
 </template>
 
 <script>
-import { classifyList, foodList, hotFoodList } from '@/api/shopApi.js';
+import { classifyList, foodList, hotFoodList,carList,addCount,subCount,totalNum,isBool } from '@/api/shopApi.js';
 export default {
 	data() {
 		return {
@@ -173,17 +173,50 @@ export default {
 			selectFood: [],
 			cart: true,
 			select: true,
-			start: true
+			start: true,
+			// 判断商品是否重复
+			bool:'',
+			// 当前登录用户的所有购物车
+			carListData:[],
+			// 总价格
+			totalNum:'',
+			// 当前登录用户的id
+			u_id:JSON.parse(localStorage.getItem("userInfo")).id,
 		};
 	},
 	methods: {
+		// 获取所有商品的总价钱
+		async totalNumData(params){
+			this.totalNum = await totalNum(params);
+			console.log('555',this.totalNum);
+		},
+		// 判断点击的商品是否已存在
+		async isBool(params){
+			let bool = await isBool(params);
+			this.bool = bool;
+		},
+		async carList(params){
+			// let res = await carList(params);
+			// console.log('res',res);
+			this.carListData = await carList(params);
+			// console.log(this.carListData);
+		},
 		add(f) {
+			// 添加商品数量
+			let params = {
+				u_id:this.u_id,
+				m_id: this.m_item.m_id,
+				s_id:f.id
+			};
+			this.isBool(params);
+			// 用户id 商品id 商品价格 商品
 			!this.selectFood.includes(f.id) && this.selectFood.push(f.id);
 			this.cart = false;
 			this.select = false;
 			this.start = false;
 		},
 		sub(f) {
+			// 删除商品数量
 			this.selectFood.includes(f.id) && this.selectFood.splice(this.selectFood.indexOf(f.id), 1);
 			if (this.selectFood.length == 0) {
 				this.cart = true;
@@ -272,6 +305,12 @@ export default {
 		// 获取当前商家的所有分类
 		this.getClassifyList();
 		this.getHotFoodList();
+		let params = {
+			u_id:this.u_id,
+			m_id: this.m_item.m_id 
+		};
+		this.carList(params);
+		this.totalNumData(params);
 	},
 	mounted() {
 		let temp_img = document.querySelector('.container .app-dp .index .img');
