@@ -53,12 +53,24 @@
 			"style": {
 				"navigationBarTitleText": "我的地址"
 			}
+		}, {
+			"path": "pages/userInfo/userInfo",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		}, {
+			"path": "pages/username/username",
+			"style": {
+				"navigationBarTitleText": "修改用户名",
+				"background": "red"
+			}
+		}, {
+			"path": "pages/password/password",
+			"style": {
+				"navigationBarTitleText": "修改密码"
+			}
 		}
-	    ,{
-            "path" : "pages/userInfo/userInfo",
-            "style" : {}
-        }
-    ],
+	],
 	"tabBar": {
 		"color": "#7A7E83",
 		"selectedColor": "#007AFF",

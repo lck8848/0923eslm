@@ -2,7 +2,7 @@
 	<view class="container">
 		<!--pages/user/user.wxml-->
 		<view class="user-container">
-			<navigator url="/pages/login/login" hover-class="none" v-if="userInfo">
+			<navigator url="/pages/userInfo/userInfo" hover-class="none" v-if="userInfo">
 				<view class="top" to>
 					<view class="img">
 						<image
@@ -110,7 +110,7 @@ export default {
 			userInfo:""
 		};
 	},
-	created(){
+	onShow: function() {
 		let userInfo = JSON.parse(localStorage.getItem("userInfo"));
 		this.userInfo = userInfo;
 	},
