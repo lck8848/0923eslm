@@ -904,7 +904,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1935,17 +1935,10 @@ function normalizeComponent (
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 120:
+/***/ 156:
 /*!********************************************************************************!*\
   !*** C:/Users/Administrator/Desktop/练习/0923eslm/components/uni-icons/icons.js ***!
   \********************************************************************************/
-=======
-/***/ 121:
-/*!*********************************************************************************!*\
-  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/components/uni-icons/icons.js ***!
-  \*********************************************************************************/
->>>>>>> 59f3d280c823e8a45f7b126ff71d8129bd2a0db0
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7667,7 +7660,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7688,14 +7681,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7780,7 +7773,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8959,7 +8952,10 @@ function request(url, options) {
       },
       fail: function fail(err) {
         reject(err);
-      } });
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' } });
+
 
 
   });
@@ -9010,16 +9006,10 @@ module.exports = g;
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ 63:
-/*!*****************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/shopApi.js ***!
-  \*****************************************************************/
-=======
 /***/ 55:
-/*!****************************************************************!*\
-  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/login.js ***!
-  \****************************************************************/
+/*!***************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/login.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9032,15 +9022,14 @@ function userLogin(_x) {return _userLogin.apply(this, arguments);}function _user
 /***/ }),
 
 /***/ 64:
-/*!******************************************************************!*\
-  !*** D:/daywork/9月/新建文件夹/uni-app-demo01/0923eslm/api/shopApi.js ***!
-  \******************************************************************/
->>>>>>> 59f3d280c823e8a45f7b126ff71d8129bd2a0db0
+/*!*****************************************************************!*\
+  !*** C:/Users/Administrator/Desktop/练习/0923eslm/api/shopApi.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.classifyList = classifyList;exports.foodList = foodList;exports.hotFoodList = hotFoodList;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+Object.defineProperty(exports, "__esModule", { value: true });exports.classifyList = classifyList;exports.foodList = foodList;exports.hotFoodList = hotFoodList;exports.carList = carList;exports.addCount = addCount;exports.subCount = subCount;exports.totalNum = totalNum;exports.isBool = isBool;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));var _request = _interopRequireDefault(__webpack_require__(/*! ./request.js */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 // 获取指定商家的所有分类
 function classifyList(_x) {return _classifyList.apply(this, arguments);}
 
@@ -9051,8 +9040,29 @@ function _classifyList() {_classifyList = _asyncToGenerator( /*#__PURE__*/_regen
 
 
 // 热门推荐
-function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 4:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
-              (0, _request.default)("/hotFoodList?id=" + id, {}));case 2:return _context3.abrupt("return", _context3.sent);case 3:case "end":return _context3.stop();}}}, _callee3);}));return _hotFoodList.apply(this, arguments);}
+function _foodList() {_foodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(id) {return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:_context2.next = 2;return (0, _request.default)("/foodList?id=" + id, {});case 2:return _context2.abrupt("return", _context2.sent);case 3:case "end":return _context2.stop();}}}, _callee2);}));return _foodList.apply(this, arguments);}function hotFoodList(_x3) {return _hotFoodList.apply(this, arguments);}
+
+
+
+// 获取当前登录指定商家的所有购物车
+function _hotFoodList() {_hotFoodList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(id) {return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (0, _request.default)("/hotFoodList?id=" + id, {});case 2:return _context3.abrupt("return", _context3.sent);case 3:case "end":return _context3.stop();}}}, _callee3);}));return _hotFoodList.apply(this, arguments);}function carList(_x4) {return _carList.apply(this, arguments);}
+
+
+// 购物车的商品加1
+function _carList() {_carList = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4(params) {return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (0, _request.default)("/carList?u_id=".concat(params.u_id, "&m_id=").concat(params.m_id), {});case 2:return _context4.abrupt("return", _context4.sent);case 3:case "end":return _context4.stop();}}}, _callee4);}));return _carList.apply(this, arguments);}function addCount(_x5) {return _addCount.apply(this, arguments);}
+
+
+// 购物车的商品减1
+function _addCount() {_addCount = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5(params) {return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (0, _request.default)("/addCount?s_id=".concat(params.s_id, "&u_id=").concat(params.u_id, "&bool=").concat(params.bool, "&price=").concat(params.price), {});case 2:return _context5.abrupt("return", _context5.sent);case 3:case "end":return _context5.stop();}}}, _callee5);}));return _addCount.apply(this, arguments);}function subCount(_x6) {return _subCount.apply(this, arguments);}
+
+
+//获取当前商家的所有商品的总金额
+function _subCount() {_subCount = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee6(params) {return _regenerator.default.wrap(function _callee6$(_context6) {while (1) {switch (_context6.prev = _context6.next) {case 0:_context6.next = 2;return (0, _request.default)("/subCount?s_id=".concat(params.s_id, "&u_id=").concat(params.u_id, "&m_id=").concat(params.m_id), {});case 2:return _context6.abrupt("return", _context6.sent);case 3:case "end":return _context6.stop();}}}, _callee6);}));return _subCount.apply(this, arguments);}function totalNum(_x7) {return _totalNum.apply(this, arguments);}
+
+
+//判断当前商品是否已加入购物车
+function _totalNum() {_totalNum = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee7(params) {return _regenerator.default.wrap(function _callee7$(_context7) {while (1) {switch (_context7.prev = _context7.next) {case 0:_context7.next = 2;return (0, _request.default)("/totalNum?u_id=".concat(params.u_id, "&m_id=").concat(params.m_id), {});case 2:return _context7.abrupt("return", _context7.sent);case 3:case "end":return _context7.stop();}}}, _callee7);}));return _totalNum.apply(this, arguments);}function isBool(_x8) {return _isBool.apply(this, arguments);}function _isBool() {_isBool = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee8(params) {return _regenerator.default.wrap(function _callee8$(_context8) {while (1) {switch (_context8.prev = _context8.next) {case 0:_context8.next = 2;return (
+              (0, _request.default)("/isBool?u_id=".concat(params.u_id, "&m_id=").concat(params.m_id, "&s_id=").concat(params.s_id), {}));case 2:return _context8.abrupt("return", _context8.sent);case 3:case "end":return _context8.stop();}}}, _callee8);}));return _isBool.apply(this, arguments);}
 
 /***/ })
 

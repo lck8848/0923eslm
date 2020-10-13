@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/uni-rate/uni-rate":1,"components/merchant/merchant":1,"components/v-tabs/v-tabs":1,"components/uni-icons/uni-icons":1};
+/******/ 		var cssChunks = {"components/uni-rate/uni-rate":1,"components/merchant/merchant":1,"components/v-tabs/v-tabs":1,"components/uni-tag/uni-tag":1,"components/uni-icons/uni-icons":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/uni-rate/uni-rate":"components/uni-rate/uni-rate","components/merchant/merchant":"components/merchant/merchant","components/v-tabs/v-tabs":"components/v-tabs/v-tabs","components/uni-icons/uni-icons":"components/uni-icons/uni-icons"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/uni-rate/uni-rate":"components/uni-rate/uni-rate","components/merchant/merchant":"components/merchant/merchant","components/v-tabs/v-tabs":"components/v-tabs/v-tabs","components/uni-tag/uni-tag":"components/uni-tag/uni-tag","components/uni-icons/uni-icons":"components/uni-icons/uni-icons"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

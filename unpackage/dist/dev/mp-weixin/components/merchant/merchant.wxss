@@ -32,34 +32,6 @@
   background-color: #fff;
   z-index: 15;
 }
-<<<<<<< HEAD
-.filex.data-v-11e8cb04 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  position: fixed;
-  bottom: 160rpx;
-  right: 30rpx;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  width: 80rpx;
-  height: 80rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  z-index: 10;
-}
-.filex .filexImg.data-v-11e8cb04 {
-  width: 55rpx;
-  height: 55rpx;
-}
-=======
->>>>>>> 59f3d280c823e8a45f7b126ff71d8129bd2a0db0
 .home-container .merchant-container.data-v-11e8cb04 {
   margin-top: 80rpx;
 }

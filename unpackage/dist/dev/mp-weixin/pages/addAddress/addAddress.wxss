@@ -39,10 +39,15 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  padding: 20rpx 0;
 }
 .addr-container .home .title.data-v-d114b534 {
-  font-size: 32rpx;
+  font-size: 28rpx;
   margin-left: 30rpx;
   margin-right: 150rpx;
+}
+.addr-container .btn.data-v-d114b534 {
+  margin-top: 30rpx;
+  padding: 0 20rpx;
 }
 
